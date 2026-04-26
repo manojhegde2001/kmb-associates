@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #08111E;
-  --color-navy-light: #0D1A2D;
-  --color-navy-card: #111F33;
+  --color-navy: #0A1628;
+  --color-navy-light: #132035;
+  --color-navy-card: #0F1C2E;
   --color-gold: #C9A84C;
   --color-gold-light: #E2BC6A;
   --color-gold-soft: rgba(201, 168, 76, 0.1);
-  --color-white: #EEE9DF;
-  --color-muted: rgba(238, 233, 223, 0.45);
-  --color-border: rgba(255, 255, 255, 0.06);
+  --color-white: #FFFFFF;
+  --color-muted: rgba(10, 22, 40, 0.45);
+  --color-border: rgba(0, 0, 0, 0.06);
 
   --font-display: var(--font-playfair);
   --font-body: var(--font-dm-sans);
@@ -26,22 +26,54 @@
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
   }
+  @keyframes gridFade {
+    0%, 100% { opacity: 0.018; }
+    50%       { opacity: 0.032; }
+  }
   @keyframes heroFadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes meshShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes orbFloat1 {
+    0%   { transform: translate(0px, 0px) scale(1); }
+    33%  { transform: translate(30px, -25px) scale(1.05); }
+    66%  { transform: translate(-20px, 15px) scale(0.97); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+  @keyframes orbFloat2 {
+    0%   { transform: translate(0px, 0px) scale(1); }
+    33%  { transform: translate(-35px, 20px) scale(1.08); }
+    66%  { transform: translate(25px, -30px) scale(0.95); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+  @keyframes orbFloat3 {
+    0%   { transform: translate(0px, 0px) scale(1); }
+    33%  { transform: translate(20px, 30px) scale(0.96); }
+    66%  { transform: translate(-15px, -20px) scale(1.06); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+  @keyframes orbFloat4 {
+    0%   { transform: translate(0px, 0px) scale(1); }
+    50%  { transform: translate(-25px, -35px) scale(1.04); }
+    100% { transform: translate(0px, 0px) scale(1); }
   }
 }
 
 @layer base {
   :root {
-    --bg-primary: #08111E;
-    --bg-secondary: #0D1A2D;
-    --bg-card: #111F33;
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F8F9FA;
+    --bg-card: #FFFFFF;
     --gold: #C9A84C;
-    --gold-soft: rgba(201, 168, 76, 0.1);
-    --text-primary: #EEE9DF;
-    --text-muted: rgba(238, 233, 223, 0.45);
-    --border: rgba(255, 255, 255, 0.06);
+    --gold-soft: rgba(201, 168, 76, 0.06);
+    --text-primary: #0A1628;
+    --text-muted: rgba(10, 22, 40, 0.45);
+    --border: rgba(0, 0, 0, 0.06);
   }
 
   html {
@@ -71,7 +103,7 @@
   /* Selection */
   ::selection {
     background: var(--gold);
-    color: var(--bg-primary);
+    color: #FFFFFF;
   }
 }
 
@@ -116,4 +148,10 @@
 
 @utility animate-blink {
   animation: blink 1.5s ease infinite;
+}
+
+.hero-orb {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }

@@ -24,7 +24,7 @@ export default function WhyUs() {
   ];
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-[#08111E]">
+    <section ref={ref} className="py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 reveal">
@@ -33,7 +33,7 @@ export default function WhyUs() {
             <span className="text-[#C9A84C] text-xs tracking-[0.22em] uppercase font-medium">Why Choose KMB</span>
             <div className="w-8 h-px bg-[#C9A84C]" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#EEE9DF] leading-tight mb-4">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#0A1628] leading-tight mb-4">
             Our Competitive Advantage
           </h2>
         </div>
@@ -42,19 +42,19 @@ export default function WhyUs() {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className={`reveal delay-${index + 1} p-8 bg-[#0D1A2D] rounded-2xl border border-[rgba(255,255,255,0.05)] transition-all duration-300 hover:border-[#C9A84C]/10 group`}
+              className={`reveal delay-${index + 1} p-8 bg-[#F8F9FA] rounded-2xl border border-black/[0.03] transition-all duration-300 hover:border-[#C9A84C]/10 group relative overflow-hidden`}
             >
               <div className="w-10 h-0.5 bg-[#C9A84C] mb-7 transition-all duration-500 group-hover:w-16" />
               
-              <div className="text-[#C9A84C]/10 text-6xl absolute top-8 right-8 pointer-events-none transition-all duration-500 group-hover:text-[#C9A84C]/20">
+              <div className="text-black/[0.03] text-6xl absolute top-8 right-8 pointer-events-none transition-all duration-500 group-hover:text-[#C9A84C]/10">
                 {feature.icon}
               </div>
 
-              <h3 className="font-display text-xl font-semibold text-[#EEE9DF] mb-3 transition-colors group-hover:text-[#C9A84C]">
+              <h3 className="font-display text-xl font-semibold text-[#0A1628] mb-3 transition-colors group-hover:text-[#C9A84C]">
                 {feature.title}
               </h3>
               
-              <p className="text-[rgba(238,233,223,0.45)] text-sm leading-relaxed font-body">
+              <p className="text-[#0A1628]/50 text-sm leading-relaxed font-body">
                 {feature.desc}
               </p>
             </div>

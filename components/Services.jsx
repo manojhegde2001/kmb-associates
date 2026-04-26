@@ -33,7 +33,7 @@ export default function Services() {
   ];
 
   return (
-    <section ref={ref} id="services" className="py-24 md:py-32 px-6 bg-[#0D1A2D]">
+    <section ref={ref} id="services" className="py-24 md:py-32 px-6 bg-[#F8F9FA]">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 reveal">
@@ -42,10 +42,10 @@ export default function Services() {
             <span className="text-[#C9A84C] text-xs tracking-[0.22em] uppercase font-medium">Our Expertise</span>
             <div className="w-8 h-px bg-[#C9A84C]" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#EEE9DF] leading-tight mb-6">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#0A1628] leading-tight mb-6">
             Comprehensive Financial Solutions
           </h2>
-          <p className="text-[rgba(238,233,223,0.45)] text-base max-w-2xl mx-auto font-body">
+          <p className="text-[#0A1628]/50 text-base max-w-2xl mx-auto font-body">
             Strategic advisory and end-to-end support for a wide spectrum of credit requirements.
           </p>
         </div>
@@ -55,21 +55,21 @@ export default function Services() {
           {services.map((service, index) => (
             <div 
               key={index}
-              className={`reveal delay-${index + 1} bg-[#111F33] border border-[rgba(255,255,255,0.06)] rounded-2xl p-7 transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-[#C9A84C]/25 hover:-translate-y-1.5 hover:shadow-[0_24px_48px_rgba(0,0,0,0.3)] group`}
+              className={`reveal delay-${index + 1} bg-white border border-black/[0.04] rounded-2xl p-7 transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-[#C9A84C]/25 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] group`}
             >
-              <div className="w-12 h-12 rounded-xl bg-[#C9A84C]/10 flex items-center justify-center text-[#C9A84C] text-xl transition-all duration-500 group-hover:bg-[#C9A84C] group-hover:text-[#08111E]">
+              <div className="w-12 h-12 rounded-xl bg-[#C9A84C]/10 flex items-center justify-center text-[#C9A84C] text-xl transition-all duration-500 group-hover:bg-[#C9A84C] group-hover:text-white">
                 {service.icon}
               </div>
               
-              <h3 className="font-display text-lg font-semibold text-[#EEE9DF] mt-5 mb-3 group-hover:text-[#C9A84C] transition-colors">
+              <h3 className="font-display text-lg font-semibold text-[#0A1628] mt-5 mb-3 group-hover:text-[#C9A84C] transition-colors">
                 {service.title}
               </h3>
               
-              <p className="text-[rgba(238,233,223,0.45)] text-sm leading-relaxed font-body">
+              <p className="text-[#0A1628]/50 text-sm leading-relaxed font-body">
                 {service.desc}
               </p>
 
-              <div className="h-px bg-white/[0.05] my-5" />
+              <div className="h-px bg-black/[0.05] my-5" />
               
               <div className="flex justify-between items-center">
                 <span className="text-[#C9A84C] text-[13px] font-semibold">
@@ -77,7 +77,7 @@ export default function Services() {
                 </span>
                 <a 
                   href="#contact" 
-                  className="text-white/30 text-[13px] font-medium hover:text-[#C9A84C] transition-colors flex items-center gap-1.5"
+                  className="text-[#0A1628]/30 text-[13px] font-medium hover:text-[#C9A84C] transition-colors flex items-center gap-1.5"
                 >
                   Enquire <span className="text-lg">→</span>
                 </a>

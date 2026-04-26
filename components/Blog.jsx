@@ -30,7 +30,7 @@ export default function Blog() {
   ];
 
   return (
-    <section ref={ref} id="blog" className="py-24 md:py-32 px-6 bg-[#0D1A2D]">
+    <section ref={ref} id="blog" className="py-24 md:py-32 px-6 bg-[#F8F9FA]">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 reveal">
@@ -39,7 +39,7 @@ export default function Blog() {
             <span className="text-[#C9A84C] text-xs tracking-[0.22em] uppercase font-medium">Financial Insights</span>
             <div className="w-8 h-px bg-[#C9A84C]" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#EEE9DF] leading-tight">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#0A1628] leading-tight">
             Latest From Our Blog
           </h2>
         </div>
@@ -49,7 +49,7 @@ export default function Blog() {
           {posts.map((post, index) => (
             <div 
               key={index}
-              className={`reveal delay-${index + 1} group bg-[#111F33] border border-[rgba(255,255,255,0.06)] rounded-2xl overflow-hidden transition-all duration-350 ease-in-out hover:border-[#C9A84C]/20 hover:-translate-y-1`}
+              className={`reveal delay-${index + 1} group bg-white border border-black/[0.04] rounded-2xl overflow-hidden transition-all duration-350 ease-in-out hover:border-[#C9A84C]/20 hover:-translate-y-1 hover:shadow-lg`}
             >
               <div className="relative h-48 overflow-hidden">
                 <Image
@@ -68,17 +68,17 @@ export default function Blog() {
                   {post.category}
                 </span>
                 
-                <h3 className="font-display text-base font-semibold text-[#EEE9DF] mt-4 mb-2 group-hover:text-[#C9A84C] transition-colors leading-snug">
+                <h3 className="font-display text-base font-semibold text-[#0A1628] mt-4 mb-2 group-hover:text-[#C9A84C] transition-colors leading-snug">
                   {post.title}
                 </h3>
                 
-                <p className="text-white/35 text-sm leading-relaxed line-clamp-2 font-body mb-5">
+                <p className="text-[#0A1628]/50 text-sm leading-relaxed line-clamp-2 font-body mb-5">
                   {post.excerpt}
                 </p>
                 
                 <a 
                   href="#contact"
-                  className="pt-4 border-t border-white/[0.05] text-[#C9A84C] text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all"
+                  className="pt-4 border-t border-black/[0.05] text-[#C9A84C] text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all"
                 >
                   Read More <span>→</span>
                 </a>
