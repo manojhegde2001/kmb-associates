@@ -1,23 +1,23 @@
-"use client";
-import { useEffect, useRef, useState } from "react";
+'use client';
 
-export function useInView(options = {}) {
-  const ref = useRef(null);
-  const [isInView, setIsInView] = useState(false);
+import { useState, useEffect } from 'react';
+
+export default function useInView(ref) {
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsInView(true);
-        if (options.triggerOnce) {
-          observer.unobserve(entry.target);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // Once visible, we can stop observing if we only want one-time animation
+          if (ref.current) observer.unobserve(ref.current);
         }
-      } else {
-        if (!options.triggerOnce) {
-          setIsInView(false);
-        }
+      },
+      {
+        threshold: 0.15,
       }
-    }, options);
+    );
 
     const currentRef = ref.current;
     if (currentRef) {
@@ -29,7 +29,7 @@ export function useInView(options = {}) {
         observer.unobserve(currentRef);
       }
     };
-  }, [options]);
+  }, [ref]);
 
-  return [ref, isInView];
+  return isVisible;
 }

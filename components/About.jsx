@@ -1,31 +1,39 @@
 "use client";
+import { useRef } from "react";
 import Image from "next/image";
-import { FaAward, FaHandshake } from "react-icons/fa";
-import { useInView } from "@/hooks/useInView";
+import { FaAward, FaHandshake, FaArrowRight } from "react-icons/fa";
+import useInView from "@/hooks/useInView";
 
 export default function About() {
-  const [contentRef, contentInView] = useInView({ triggerOnce: true });
-  const [imageRef, imageInView] = useInView({ triggerOnce: true });
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
+  const leftVisible = useInView(leftRef);
+  const rightVisible = useInView(rightRef);
 
   return (
-    <section id="about" className="py-24 bg-[#0A1628] overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="about" className="py-28 px-4 bg-navy overflow-hidden">
+      <div className="container mx-auto">
+        <div className="grid lg:grid-cols-[60%_40%] gap-16 items-center">
           {/* Left Content */}
           <div
-            ref={contentRef}
-            className={`transition-all duration-1000 ${
-              contentInView ? "opacity-1 translate-x-0" : "opacity-0 -translate-x-12"
+            ref={leftRef}
+            className={`transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              leftVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
             }`}
           >
-            <span className="text-[#C9A84C] font-dm-sans text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
-              ABOUT US
-            </span>
-            <h2 className="text-4xl md:text-5xl font-playfair font-bold text-white mb-8 leading-tight">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-8 h-px bg-gold inline-block" />
+              <span className="text-gold font-body text-xs font-bold tracking-[0.2em] uppercase">
+                ABOUT US
+              </span>
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-8 leading-snug">
               Preserving and enhancing <br />
-              <span className="text-[#C9A84C]">business value</span> since 1994.
+              <span className="text-gold">business value</span> since 1994.
             </h2>
-            <div className="space-y-6 text-[#8A97A8] text-lg font-dm-sans">
+            
+            <div className="space-y-6 text-white/60 text-base font-body leading-relaxed max-w-2xl">
               <p>
                 KMB, with its management consulting and banking services, focuses on developing customized end-to-end solutions that ensure organizations achieve sustainable growth.
               </p>
@@ -35,22 +43,23 @@ export default function About() {
             </div>
 
             <div className="mt-10 grid sm:grid-cols-2 gap-6">
-              <div className="flex items-start space-x-4 p-4 bg-[#111E30] rounded-lg border border-[#1E3A5F]">
-                <div className="text-3xl text-[#C9A84C] mt-1">
+              <div className="bg-navy-card border border-gold/20 rounded-xl px-5 py-4 flex items-center gap-4 group hover:border-gold/40 transition-colors">
+                <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold text-xl shrink-0 group-hover:bg-gold group-hover:text-navy transition-all duration-300">
                   <FaAward />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold mb-1">30 Years Exp.</h4>
-                  <p className="text-[#8A97A8] text-sm">Deep-rooted industry knowledge and expertise.</p>
+                  <h4 className="text-white font-bold text-sm">30 Years Exp.</h4>
+                  <p className="text-white/40 text-xs">Deep-rooted industry knowledge.</p>
                 </div>
               </div>
-              <div className="flex items-start space-x-4 p-4 bg-[#111E30] rounded-lg border border-[#1E3A5F]">
-                <div className="text-3xl text-[#C9A84C] mt-1">
+              
+              <div className="bg-navy-card border border-gold/20 rounded-xl px-5 py-4 flex items-center gap-4 group hover:border-gold/40 transition-colors">
+                <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold text-xl shrink-0 group-hover:bg-gold group-hover:text-navy transition-all duration-300">
                   <FaHandshake />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold mb-1">Bank Experts</h4>
-                  <p className="text-[#8A97A8] text-sm">Negotiation experts for better rates and terms.</p>
+                  <h4 className="text-white font-bold text-sm">Bank Experts</h4>
+                  <p className="text-white/40 text-xs">Expert negotiation & terms.</p>
                 </div>
               </div>
             </div>
@@ -58,38 +67,40 @@ export default function About() {
             <div className="mt-12">
               <a
                 href="#contact"
-                className="inline-block px-8 py-4 bg-[#C9A84C] text-[#0A1628] font-bold tracking-wide rounded-sm hover:bg-[#E8C96D] transition-all duration-300"
+                className="group inline-flex items-center gap-2 text-gold font-medium hover:gap-4 transition-all duration-300"
               >
-                Learn More About Our Journey
+                <span>Learn More About Our Journey</span>
+                <FaArrowRight className="text-sm" />
+                <div className="h-px bg-gold w-0 group-hover:w-full transition-all duration-300" />
               </a>
             </div>
           </div>
 
           {/* Right Image */}
           <div
-            ref={imageRef}
-            className={`relative transition-all duration-1000 delay-300 ${
-              imageInView ? "opacity-1 translate-x-0" : "opacity-0 translate-x-12"
+            ref={rightRef}
+            className={`relative transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              rightVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
             }`}
           >
-            {/* Decorative Offset Border */}
-            <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-[#C9A84C] z-0 rounded-sm"></div>
+            {/* Gold accent border */}
+            <div className="absolute -top-4 -right-4 w-full h-full border-2 border-gold/30 rounded-2xl z-0" />
             
-            <div className="relative z-10 overflow-hidden rounded-sm">
+            <div className="relative z-10 overflow-hidden rounded-2xl aspect-[4/5] md:aspect-auto">
               <Image
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80"
                 alt="Business Meeting at KMB Associates"
                 width={900}
-                height={600}
-                className="object-cover transform hover:scale-105 transition-transform duration-700"
+                height={1200}
+                className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-700"
               />
             </div>
             
-            {/* Experience Badge */}
-            <div className="absolute top-10 -left-10 bg-[#C9A84C] p-6 text-[#0A1628] z-20 shadow-2xl rounded-sm hidden md:block">
-              <div className="text-4xl font-playfair font-bold">30+</div>
-              <div className="text-xs font-bold uppercase tracking-widest leading-tight">
-                Years of <br /> Excellence
+            {/* Overlay badge bottom-left */}
+            <div className="absolute bottom-6 left-6 bg-navy/90 backdrop-blur-sm border border-gold/20 rounded-xl px-6 py-5 z-20">
+              <div className="font-display text-3xl font-bold text-gold">30+</div>
+              <div className="text-white/60 text-xs font-medium uppercase tracking-wider mt-1">
+                Years of Excellence
               </div>
             </div>
           </div>

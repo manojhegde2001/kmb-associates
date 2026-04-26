@@ -1,80 +1,83 @@
-import { FaFacebook, FaLinkedin, FaYoutube, FaWhatsapp } from "react-icons/fa";
+import Link from "next/link";
+import { FaFacebook, FaLinkedin, FaYoutube, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0A1628] border-t border-[#C9A84C]/20 pt-20 pb-10 relative">
+    <footer className="bg-[#060E1A] border-t border-white/5 pt-20 pb-10 relative">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <h3 className="font-playfair text-2xl font-bold text-white mb-6">
-              KMB ASSOCIATES<span className="text-[#C9A84C]">.</span>
-            </h3>
-            <p className="text-[#8A97A8] font-dm-sans mb-8">
-              &quot;You&apos;ve arrived at the ultimate financing destination!&quot; Solutions for all your financial needs.
+            <Link href="/" className="flex items-center mb-6">
+              <span className="font-display text-2xl font-bold text-white">
+                KMB <span className="text-gold">Associates</span><span className="text-gold">.</span>
+              </span>
+            </Link>
+            <p className="text-white/40 font-body text-sm leading-relaxed max-w-xs">
+              &quot;You&apos;ve arrived at the ultimate financing destination!&quot; Solutions for all your financial needs. KMB Associates LLP specializes in debt funding and corporate restructuring.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Quick Links</h4>
+            <h4 className="text-gold font-bold uppercase tracking-[0.2em] text-[10px] mb-8">Quick Links</h4>
             <ul className="space-y-4">
               {["Home", "Services", "About", "Blog", "Contact"].map((link) => (
                 <li key={link}>
-                  <a
+                  <Link
                     href={`#${link.toLowerCase()}`}
-                    className="text-[#8A97A8] hover:text-[#C9A84C] transition-colors font-dm-sans text-sm"
+                    className="text-white/40 hover:text-white transition-colors font-body text-sm"
                   >
                     {link}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Our Services */}
           <div>
-            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Our Services</h4>
+            <h4 className="text-gold font-bold uppercase tracking-[0.2em] text-[10px] mb-8">Our Services</h4>
             <ul className="space-y-4">
-              {["Home Loan", "Mortgage Loan", "Business Loan", "Project Loan"].map((service) => (
+              {["Home Loan", "Mortgage Loan", "Business Loan", "Project/MSME Loan"].map((service) => (
                 <li key={service}>
-                  <a
+                  <Link
                     href="#services"
-                    className="text-[#8A97A8] hover:text-[#C9A84C] transition-colors font-dm-sans text-sm"
+                    className="text-white/40 hover:text-white transition-colors font-body text-sm"
                   >
                     {service}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Contact Details */}
           <div>
-            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Contact Details</h4>
-            <div className="text-[#8A97A8] font-dm-sans text-sm space-y-4">
-              <p>No.308, Shreshta Bhumi No 87, <br />K R Road, V V Puram, <br />Bengaluru 560004</p>
-              <p>+91 99646 26265</p>
+            <h4 className="text-gold font-bold uppercase tracking-[0.2em] text-[10px] mb-8">Contact Details</h4>
+            <div className="text-white/40 font-body text-sm space-y-4">
+              <p className="leading-relaxed">No.308, Shreshta Bhumi No 87, <br />K R Road, V V Puram, <br />Bengaluru 560004</p>
+              <p className="text-white font-medium">+91 99646 26265</p>
               <p>vikram@kmbassociates.in</p>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-10 border-t border-[#1E3A5F] flex flex-col md:row items-center justify-between space-y-6 md:space-y-0">
-          <p className="text-[#8A97A8] text-xs font-dm-sans">
-            © {currentYear} KMB Associates LLP. All Rights Reserved.
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-white/30 text-[10px] md:text-xs font-body tracking-wider">
+            © {currentYear} KMB Associates LLP. ALL RIGHTS RESERVED.
           </p>
-          <div className="flex space-x-6">
-            {[FaFacebook, FaLinkedin, FaYoutube].map((Icon, idx) => (
+          <div className="flex gap-4">
+            {[FaFacebook, FaLinkedin, FaInstagram, FaYoutube].map((Icon, idx) => (
               <a
                 key={idx}
                 href="#"
-                className="text-[#8A97A8] hover:text-[#C9A84C] transition-colors text-lg"
+                className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:border-gold hover:text-gold hover:bg-gold/5 transition-all duration-300"
               >
-                <Icon />
+                <Icon className="text-sm" />
               </a>
             ))}
           </div>
@@ -82,14 +85,30 @@ export default function Footer() {
       </div>
 
       {/* WhatsApp Floating Button */}
+      <WhatsAppButton />
+    </footer>
+  );
+}
+
+function WhatsAppButton() {
+  return (
+    <div className="fixed bottom-6 right-6 z-50 group">
+      {/* Tooltip */}
+      <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-navy-card text-white text-xs px-4 py-2 rounded-lg border border-white/5 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 pointer-events-none shadow-xl">
+        Chat with us
+      </div>
+      
+      {/* Pulse effect */}
+      <div className="absolute inset-0 bg-[#25D366] rounded-full animate-[ping_2s_infinite] opacity-30" />
+      
       <a
         href="https://wa.me/919964626265"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-3xl text-white shadow-2xl z-50 whatsapp-pulse transition-transform hover:scale-110 active:scale-95"
+        className="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white text-2xl shadow-[0_4px_20px_rgba(37,211,102,0.4)] transition-transform hover:scale-110 active:scale-95"
       >
         <FaWhatsapp />
       </a>
-    </footer>
+    </div>
   );
 }

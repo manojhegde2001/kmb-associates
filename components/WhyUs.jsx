@@ -1,10 +1,9 @@
 "use client";
+import { useRef } from "react";
 import { FaUserTie, FaBolt, FaSearchDollar } from "react-icons/fa";
-import { useInView } from "@/hooks/useInView";
+import useInView from "@/hooks/useInView";
 
 export default function WhyUs() {
-  const [ref, inView] = useInView({ triggerOnce: true });
-
   const features = [
     {
       title: "Expertise",
@@ -24,31 +23,50 @@ export default function WhyUs() {
   ];
 
   return (
-    <section className="py-24 bg-[#1E3A5F]">
+    <section className="py-24 bg-navy-card relative overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3">
           {features.map((feature, index) => (
-            <div
-              key={index}
-              ref={ref}
-              style={{ transitionDelay: `${index * 150}ms` }}
-              className={`text-center transition-all duration-1000 ${
-                inView ? "opacity-1 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
-            >
-              <div className="w-20 h-20 bg-[#0A1628] rounded-full flex items-center justify-center text-3xl text-[#C9A84C] mx-auto mb-8 border-t-2 border-[#C9A84C]">
-                {feature.icon}
-              </div>
-              <h3 className="text-2xl font-playfair font-bold text-white mb-4">
-                {feature.title}
-              </h3>
-              <p className="text-[#FAFAFA] font-dm-sans opacity-80 leading-relaxed">
-                {feature.desc}
-              </p>
-            </div>
+            <WhyUsItem 
+              key={index} 
+              feature={feature} 
+              index={index} 
+              isLast={index === features.length - 1}
+            />
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function WhyUsItem({ feature, index, isLast }) {
+  const itemRef = useRef(null);
+  const isVisible = useInView(itemRef);
+
+  return (
+    <div
+      ref={itemRef}
+      className={`relative p-12 flex flex-col items-start transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      } stagger-${index + 1} ${
+        !isLast ? "md:border-r border-white/5" : ""
+      }`}
+    >
+      {/* Decorative large icon */}
+      <div className="absolute top-8 right-8 text-6xl text-gold/5 pointer-events-none">
+        {feature.icon}
+      </div>
+
+      <div className="w-12 h-0.5 bg-gold mb-8" />
+      
+      <h3 className="text-2xl font-display font-bold text-white mb-4">
+        {feature.title}
+      </h3>
+      
+      <p className="text-white/50 font-body text-sm leading-relaxed max-w-xs">
+        {feature.desc}
+      </p>
+    </div>
   );
 }
