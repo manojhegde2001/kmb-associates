@@ -71,9 +71,9 @@ export default function Hero() {
             className="font-display leading-[1.1] mb-6 drop-shadow-sm"
             style={{ animation: 'heroFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s both' }}
           >
-            <span className="block text-5xl md:text-6xl lg:text-[72px] text-[#1A1A1A] font-bold">You&apos;ve arrived at the</span>
-            <span className="block text-5xl md:text-6xl lg:text-[72px] text-[#C9A84C] italic font-bold">ultimate financing</span>
-            <span className="block text-5xl md:text-6xl lg:text-[72px] text-[#1A1A1A] font-bold">destination!</span>
+            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-[72px] text-[#1A1A1A] font-bold">You&apos;ve arrived at the</span>
+            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-[72px] text-[#C9A84C] italic font-bold">ultimate financing</span>
+            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-[72px] text-[#1A1A1A] font-bold">destination!</span>
           </h1>
           
           <p 
@@ -84,18 +84,18 @@ export default function Hero() {
           </p>
           
           <div 
-            className="flex flex-wrap gap-4 mb-16"
+            className="flex flex-col sm:flex-row gap-4 mb-16 w-full sm:w-auto"
             style={{ animation: 'heroFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.7s both' }}
           >
             <a
               href="#contact"
-              className="bg-[#C9A84C] text-white font-bold px-8 py-4 rounded-full text-sm tracking-wide hover:bg-[#E2BC6A] hover:shadow-[0_10px_30px_rgba(201,168,76,0.3)] transition-all duration-300 hover:scale-105"
+              className="bg-[#C9A84C] text-white font-bold px-8 py-4 rounded-full text-sm tracking-wide hover:bg-[#E2BC6A] hover:shadow-[0_10px_30px_rgba(201,168,76,0.3)] transition-all duration-300 hover:scale-105 text-center"
             >
               Get In Touch
             </a>
             <a
               href="#services"
-              className="bg-white/40 backdrop-blur-sm border border-[#C9A84C]/35 text-[#C9A84C] px-8 py-4 rounded-full text-sm tracking-wide hover:bg-white/80 transition-all duration-300"
+              className="bg-[#1A1A1A]/5 backdrop-blur-sm border border-[#1A1A1A]/10 text-[#1A1A1A] px-8 py-4 rounded-full text-sm tracking-wide hover:bg-[#1A1A1A]/10 transition-all duration-300 text-center"
             >
               Our Services
             </a>

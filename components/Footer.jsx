@@ -114,9 +114,9 @@ function WhatsAppButton() {
         href="https://wa.me/919964626265"
         target="_blank"
         rel="noopener noreferrer"
-        className="relative w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-[0_4px_24px_rgba(37,211,102,0.45)] hover:scale-110 transition-transform duration-300"
+        className="relative w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-[0_4px_24px_rgba(37,211,102,0.45)] hover:scale-110 transition-transform duration-300"
       >
-        <FaWhatsapp className="text-white text-[26px]" />
+        <FaWhatsapp className="text-white text-2xl md:text-[26px]" />
       </a>
 
       {/* Tooltip */}

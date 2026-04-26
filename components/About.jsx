@@ -16,8 +16,8 @@ export default function About() {
             <span className="text-[#C9A84C] text-xs tracking-[0.22em] uppercase font-medium">About KMB</span>
           </div>
 
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1A1A1A] leading-tight mb-8">
-            Expert financial consulting <br />
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A1A1A] leading-tight mb-8">
+            Expert financial consulting <br className="hidden sm:block" />
             <span className="text-[#C9A84C]">since 2014.</span>
           </h2>
 

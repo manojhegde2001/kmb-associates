@@ -42,7 +42,7 @@ export default function Services() {
             <span className="text-[#C9A84C] text-xs tracking-[0.22em] uppercase font-medium">Our Expertise</span>
             <div className="w-8 h-px bg-[#C9A84C]" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1A1A1A] leading-tight mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A1A1A] leading-tight mb-6 px-4">
             Comprehensive Financial Solutions
           </h2>
           <p className="text-[#1A1A1A]/50 text-base max-w-2xl mx-auto font-body">

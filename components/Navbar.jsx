@@ -52,9 +52,9 @@ export default function Navbar() {
               <Image 
                 src="/KMB Logo.png" 
                 alt="KMB Associates" 
-                width={130} 
-                height={48} 
-                className="object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.8)]"
+                width={100} 
+                height={40} 
+                className="md:w-[130px] object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.8)]"
                 priority
                 onError={() => setLogoError(true)}
               />

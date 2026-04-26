@@ -36,8 +36,8 @@ export default function Contact() {
             <span className="text-[#C9A84C] text-xs tracking-[0.22em] uppercase font-medium">Get in Touch</span>
             <div className="w-8 h-px bg-[#C9A84C]" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1A1A1A] leading-tight">
-            Ready to start your <br />
+          <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-[#1A1A1A] leading-tight">
+            Ready to start your <br className="hidden sm:block" />
             <span className="text-[#C9A84C]">financial journey?</span>
           </h2>
         </div>
