@@ -1,107 +1,85 @@
-"use client";
-import { useRef } from "react";
 import Image from "next/image";
-import { FaAward, FaHandshake, FaArrowRight } from "react-icons/fa";
-import useInView from "@/hooks/useInView";
+import { FaAward, FaHandshake } from "react-icons/fa";
 
 export default function About() {
-  const leftRef = useRef(null);
-  const rightRef = useRef(null);
-  const leftVisible = useInView(leftRef);
-  const rightVisible = useInView(rightRef);
-
   return (
-    <section id="about" className="py-28 px-4 bg-navy overflow-hidden">
-      <div className="container mx-auto">
-        <div className="grid lg:grid-cols-[60%_40%] gap-16 items-center">
-          {/* Left Content */}
-          <div
-            ref={leftRef}
-            className={`transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              leftVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
-            }`}
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <span className="w-8 h-px bg-gold inline-block" />
-              <span className="text-gold font-body text-xs font-bold tracking-[0.2em] uppercase">
-                ABOUT US
-              </span>
-            </div>
-            
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-8 leading-snug">
-              Preserving and enhancing <br />
-              <span className="text-gold">business value</span> since 1994.
-            </h2>
-            
-            <div className="space-y-6 text-white/60 text-base font-body leading-relaxed max-w-2xl">
-              <p>
-                KMB, with its management consulting and banking services, focuses on developing customized end-to-end solutions that ensure organizations achieve sustainable growth.
-              </p>
-              <p>
-                With a combined expertise of 30 years (23 years in Banking + 7 years Professional), we enable services in debt funding, stressed assets management, and corporate restructuring.
-              </p>
-            </div>
-
-            <div className="mt-10 grid sm:grid-cols-2 gap-6">
-              <div className="bg-navy-card border border-gold/20 rounded-xl px-5 py-4 flex items-center gap-4 group hover:border-gold/40 transition-colors">
-                <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold text-xl shrink-0 group-hover:bg-gold group-hover:text-navy transition-all duration-300">
-                  <FaAward />
-                </div>
-                <div>
-                  <h4 className="text-white font-bold text-sm">30 Years Exp.</h4>
-                  <p className="text-white/40 text-xs">Deep-rooted industry knowledge.</p>
-                </div>
+    <section id="about" className="py-28 px-6 max-w-7xl mx-auto overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        {/* Left Col */}
+        <div className="reveal-left">
+          <div className="flex items-center gap-3 mb-6">
+            <hr className="w-10 h-[1px] bg-gold border-0" />
+            <span className="text-gold text-xs tracking-[0.2em] uppercase font-medium">ABOUT US</span>
+          </div>
+          
+          <h2 className="font-display text-4xl md:text-5xl font-bold leading-snug text-white mb-6">
+            Preserving and enhancing <br />
+            <span className="text-gold">business value</span> since 1994.
+          </h2>
+          
+          <p className="text-white/55 leading-relaxed text-base mb-8 font-body">
+            KMB, with its management consulting and banking services, focuses on developing customized end-to-end solutions that ensure organizations achieve sustainable growth.
+            <br /><br />
+            With a combined expertise of 30 years (23 years in Banking + 7 years Professional), we enable services in debt funding, stressed assets management, and corporate restructuring.
+          </p>
+          
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-4 bg-navy-card border border-white/[0.07] rounded-xl px-5 py-4 transition-all duration-300 hover:border-gold/30 group">
+              <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold text-lg shrink-0 group-hover:bg-gold group-hover:text-navy transition-all duration-300">
+                <FaAward />
               </div>
-              
-              <div className="bg-navy-card border border-gold/20 rounded-xl px-5 py-4 flex items-center gap-4 group hover:border-gold/40 transition-colors">
-                <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold text-xl shrink-0 group-hover:bg-gold group-hover:text-navy transition-all duration-300">
-                  <FaHandshake />
-                </div>
-                <div>
-                  <h4 className="text-white font-bold text-sm">Bank Experts</h4>
-                  <p className="text-white/40 text-xs">Expert negotiation & terms.</p>
-                </div>
+              <div className="flex flex-col">
+                <p className="font-semibold text-white text-sm">30 Years Exp.</p>
+                <span className="text-white/40 text-xs">Deep-rooted industry knowledge and expertise.</span>
               </div>
             </div>
-
-            <div className="mt-12">
-              <a
-                href="#contact"
-                className="group inline-flex items-center gap-2 text-gold font-medium hover:gap-4 transition-all duration-300"
-              >
-                <span>Learn More About Our Journey</span>
-                <FaArrowRight className="text-sm" />
-                <div className="h-px bg-gold w-0 group-hover:w-full transition-all duration-300" />
-              </a>
+            
+            <div className="flex items-center gap-4 bg-navy-card border border-white/[0.07] rounded-xl px-5 py-4 transition-all duration-300 hover:border-gold/30 group">
+              <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold text-lg shrink-0 group-hover:bg-gold group-hover:text-navy transition-all duration-300">
+                <FaHandshake />
+              </div>
+              <div className="flex flex-col">
+                <p className="font-semibold text-white text-sm">Bank Experts</p>
+                <span className="text-white/40 text-xs">Negotiation experts for better rates and terms.</span>
+              </div>
             </div>
           </div>
 
-          {/* Right Image */}
-          <div
-            ref={rightRef}
-            className={`relative transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              rightVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
-            }`}
+          <a 
+            href="#contact" 
+            className="mt-8 inline-flex items-center gap-2 text-gold font-medium text-sm hover:gap-4 transition-all duration-300 group"
           >
-            {/* Gold accent border */}
-            <div className="absolute -top-4 -right-4 w-full h-full border-2 border-gold/30 rounded-2xl z-0" />
+            Learn More About Our Journey <span className="group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+        </div>
+
+        {/* Right Col */}
+        <div className="reveal-right relative self-stretch">
+          {/* Gold accent box */}
+          <div className="absolute -top-5 -right-5 w-full h-full border border-gold/20 rounded-2xl z-0" />
+          
+          <div className="relative z-10 rounded-2xl overflow-hidden w-full h-[480px]">
+            <Image
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80"
+              alt="KMB Associates Team"
+              fill
+              className="object-cover"
+            />
             
-            <div className="relative z-10 overflow-hidden rounded-2xl aspect-[4/5] md:aspect-auto">
-              <Image
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80"
-                alt="Business Meeting at KMB Associates"
-                width={900}
-                height={1200}
-                className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-700"
-              />
+            {/* Overlay badge */}
+            <div className="absolute bottom-6 left-6 z-20 bg-navy/90 backdrop-blur-sm border border-gold/20 rounded-xl px-6 py-5">
+              <div className="font-display text-4xl font-bold text-gold">30+</div>
+              <div className="text-white/60 text-sm mt-1">Years of Excellence</div>
             </div>
-            
-            {/* Overlay badge bottom-left */}
-            <div className="absolute bottom-6 left-6 bg-navy/90 backdrop-blur-sm border border-gold/20 rounded-xl px-6 py-5 z-20">
-              <div className="font-display text-3xl font-bold text-gold">30+</div>
-              <div className="text-white/60 text-xs font-medium uppercase tracking-wider mt-1">
-                Years of Excellence
-              </div>
+
+            {/* Decorative watermark element */}
+            <div className="absolute bottom-6 right-6 z-20 opacity-80 w-32 h-32">
+              <Image 
+                src="/path142.png" 
+                alt="Decorative element" 
+                fill 
+                className="object-contain"
+              />
             </div>
           </div>
         </div>

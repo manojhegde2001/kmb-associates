@@ -1,7 +1,6 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaLinkedin, FaYoutube, FaCheckCircle, FaInstagram } from "react-icons/fa";
-import useInView from "@/hooks/useInView";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -12,8 +11,6 @@ export default function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
-  const headerRef = useRef(null);
-  const headerVisible = useInView(headerRef);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,123 +25,127 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-28 bg-navy px-4">
-      <div className="container mx-auto">
-        <div
-          ref={headerRef}
-          className={`text-center max-w-3xl mx-auto mb-20 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          <span className="text-gold font-body text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
-            GET IN TOUCH
-          </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-            Ready to start your <br />
-            <span className="text-gold">financial journey?</span>
-          </h2>
+    <section id="contact" className="py-28 px-6 bg-navy-card max-w-7xl mx-auto">
+      <div className="text-center mb-16 reveal">
+        <div className="flex items-center justify-center gap-3 mb-4">
+          <hr className="w-10 h-[1px] bg-gold border-0" />
+          <span className="text-gold text-xs tracking-[0.2em] uppercase font-medium">CONTACT US</span>
         </div>
+        <h2 className="font-display text-4xl md:text-5xl font-bold text-white">Get in touch with our experts</h2>
+      </div>
 
-        <div className="grid lg:grid-cols-[40%_60%] gap-16">
-          {/* Left: Contact Info */}
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+        {/* Left Col */}
+        <div className="lg:col-span-2 reveal-left">
           <div className="space-y-10">
-            <ContactItem 
-              icon={<FaMapMarkerAlt />} 
-              label="Our Location" 
-              value="No.308, Shreshta Bhumi No 87, K R Road, V V Puram, Bengaluru 560004" 
-            />
-            <ContactItem 
-              icon={<FaPhone />} 
-              label="Call Us" 
-              value="9964626265 | 9740562900" 
-            />
-            <ContactItem 
-              icon={<FaEnvelope />} 
-              label="Email Us" 
-              value="vikram@kmbassociates.in" 
-            />
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-lg shrink-0">
+                <FaMapMarkerAlt />
+              </div>
+              <div>
+                <label className="block text-white/35 text-[10px] uppercase tracking-[0.18em] mb-1">Our Location</label>
+                <p className="text-white text-sm font-medium">No.308, Shreshta Bhumi No 87, K R Road, V V Puram, Bengaluru 560004</p>
+              </div>
+            </div>
 
-            <div className="pt-8">
-              <h4 className="text-white/40 text-xs font-bold uppercase tracking-widest mb-6">Follow Us</h4>
-              <div className="flex gap-4">
-                {[FaFacebook, FaLinkedin, FaInstagram, FaYoutube].map((Icon, idx) => (
-                  <a
-                    key={idx}
-                    href="#"
-                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:border-gold hover:text-gold hover:bg-gold/5 transition-all duration-300"
-                  >
-                    <Icon />
-                  </a>
-                ))}
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-lg shrink-0">
+                <FaPhone />
+              </div>
+              <div>
+                <label className="block text-white/35 text-[10px] uppercase tracking-[0.18em] mb-1">Call Us</label>
+                <p className="text-white text-sm font-medium">9964626265 | 9740562900</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-lg shrink-0">
+                <FaEnvelope />
+              </div>
+              <div>
+                <label className="block text-white/35 text-[10px] uppercase tracking-[0.18em] mb-1">Email Us</label>
+                <p className="text-white text-sm font-medium">vikram@kmbassociates.in</p>
               </div>
             </div>
           </div>
 
-          {/* Right: Contact Form */}
-          <div className="bg-navy-card rounded-2xl p-8 md:p-12 border border-white/5 shadow-2xl relative">
+          <div className="flex gap-3 mt-10">
+            {[FaFacebook, FaLinkedin, FaInstagram, FaYoutube].map((Icon, idx) => (
+              <a
+                key={idx}
+                href="#"
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-gold hover:text-gold hover:bg-gold/5 transition-all duration-300"
+              >
+                <Icon />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Right Col */}
+        <div className="lg:col-span-3 reveal-right w-full">
+          <div className="bg-navy border border-white/[0.06] rounded-2xl p-8 md:p-10 shadow-xl">
             {submitted ? (
-              <div className="h-full min-h-[400px] flex flex-col items-center justify-center text-center animate-[fadeInUp_0.8s_ease-out]">
-                <FaCheckCircle className="text-6xl text-gold mb-6 animate-bounce" />
-                <h3 className="text-3xl font-display font-bold text-white mb-4">Message Sent!</h3>
-                <p className="text-white/40 font-body max-w-xs mx-auto">
-                  Thank you! We&apos;ll contact you shortly to discuss your requirements.
-                </p>
-                <button
+              <div className="text-center py-16 animate-fadeInUp">
+                <FaCheckCircle className="text-gold text-5xl mx-auto mb-4" />
+                <h3 className="font-display text-2xl text-white mb-2">Message Sent!</h3>
+                <p className="text-white/50 text-sm">Thank you for reaching out. We&apos;ll contact you shortly.</p>
+                <button 
                   onClick={() => setSubmitted(false)}
-                  className="mt-10 text-gold font-bold underline hover:text-gold-light transition-colors"
+                  className="mt-6 text-gold font-medium text-sm underline"
                 >
                   Send another message
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="relative">
-                    <label className="text-[10px] text-white/40 uppercase tracking-[0.2em] mb-1 block">Full Name</label>
+                <div className="grid grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-[10px] text-white/35 uppercase tracking-[0.18em] mb-2">Full Name</label>
                     <input
                       type="text"
                       name="name"
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-b border-white/10 focus:border-gold outline-none px-0 py-3 text-white placeholder:text-white/20 text-sm transition-all duration-300"
-                      placeholder="e.g. Rahul Sharma"
+                      className="w-full bg-transparent border-0 border-b border-white/10 focus:border-gold outline-none py-3 text-white placeholder:text-white/25 text-sm transition-colors duration-300"
+                      placeholder="Rahul Sharma"
                     />
                   </div>
-                  <div className="relative">
-                    <label className="text-[10px] text-white/40 uppercase tracking-[0.2em] mb-1 block">Phone Number</label>
+                  <div>
+                    <label className="block text-[10px] text-white/35 uppercase tracking-[0.18em] mb-2">Phone Number</label>
                     <input
                       type="tel"
                       name="phone"
                       required
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-b border-white/10 focus:border-gold outline-none px-0 py-3 text-white placeholder:text-white/20 text-sm transition-all duration-300"
-                      placeholder="+91 98XXX XXXXX"
+                      className="w-full bg-transparent border-0 border-b border-white/10 focus:border-gold outline-none py-3 text-white placeholder:text-white/25 text-sm transition-colors duration-300"
+                      placeholder="+91 99XXX XXXXX"
                     />
                   </div>
                 </div>
 
-                <div className="relative">
-                  <label className="text-[10px] text-white/40 uppercase tracking-[0.2em] mb-1 block">Email Address</label>
+                <div>
+                  <label className="block text-[10px] text-white/35 uppercase tracking-[0.18em] mb-2">Email Address</label>
                   <input
                     type="email"
                     name="email"
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b border-white/10 focus:border-gold outline-none px-0 py-3 text-white placeholder:text-white/20 text-sm transition-all duration-300"
-                    placeholder="name@email.com"
+                    className="w-full bg-transparent border-0 border-b border-white/10 focus:border-gold outline-none py-3 text-white placeholder:text-white/25 text-sm transition-colors duration-300"
+                    placeholder="rahul@example.com"
                   />
                 </div>
 
-                <div className="relative">
-                  <label className="text-[10px] text-white/40 uppercase tracking-[0.2em] mb-1 block">Loan Type</label>
+                <div>
+                  <label className="block text-[10px] text-white/35 uppercase tracking-[0.18em] mb-2">Loan Type</label>
                   <select
                     name="loanType"
                     value={formData.loanType}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b border-white/10 focus:border-gold outline-none px-0 py-3 text-white cursor-pointer transition-all duration-300"
+                    className="w-full bg-transparent border-0 border-b border-white/10 focus:border-gold outline-none py-3 text-white appearance-none cursor-pointer text-sm transition-colors duration-300"
                   >
                     <option className="bg-navy">Home Loan</option>
                     <option className="bg-navy">Mortgage Loan</option>
@@ -153,22 +154,22 @@ export default function Contact() {
                   </select>
                 </div>
 
-                <div className="relative">
-                  <label className="text-[10px] text-white/40 uppercase tracking-[0.2em] mb-1 block">Your Message</label>
+                <div>
+                  <label className="block text-[10px] text-white/35 uppercase tracking-[0.18em] mb-2">Your Message</label>
                   <textarea
                     name="message"
-                    rows="3"
+                    rows="4"
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b border-white/10 focus:border-gold outline-none px-0 py-3 text-white placeholder:text-white/20 text-sm transition-all duration-300 resize-none"
+                    className="w-full bg-transparent border-0 border-b border-white/10 focus:border-gold outline-none py-3 text-white placeholder:text-white/25 text-sm transition-colors duration-300 resize-none"
                     placeholder="Tell us about your requirements..."
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-5 bg-gold hover:bg-gold-light text-navy font-bold rounded-xl tracking-[0.1em] uppercase transition-all duration-300 hover:shadow-[0_4px_30px_rgba(201,168,76,0.3)] hover:scale-[1.02] mt-4"
+                  className="w-full mt-8 bg-gold text-navy font-bold py-4 rounded-xl hover:bg-gold-light hover:shadow-[0_4px_30px_rgba(201,168,76,0.35)] hover:scale-[1.02] transition-all duration-300 tracking-wide text-sm"
                 >
                   Send Message
                 </button>
@@ -178,19 +179,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  );
-}
-
-function ContactItem({ icon, label, value }) {
-  return (
-    <div className="flex items-start gap-5 group">
-      <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold text-lg shrink-0 group-hover:bg-gold group-hover:text-navy transition-all duration-300">
-        {icon}
-      </div>
-      <div>
-        <label className="text-[10px] text-white/40 uppercase tracking-[0.2em] mb-1 block">{label}</label>
-        <p className="text-white font-medium text-base leading-relaxed">{value}</p>
-      </div>
-    </div>
   );
 }

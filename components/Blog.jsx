@@ -1,18 +1,12 @@
-"use client";
-import { useRef } from "react";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
-import useInView from "@/hooks/useInView";
 
 export default function Blog() {
-  const headerRef = useRef(null);
-  const headerVisible = useInView(headerRef);
-
   const posts = [
     {
       title: "Know More About Your CIBIL Score and Report",
       excerpt: "Why credit score matters for loan sanction and how to maintain a healthy financial profile.",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80",
+      image: "/Credit.png",
       category: "Credit Tips",
     },
     {
@@ -30,73 +24,58 @@ export default function Blog() {
   ];
 
   return (
-    <section id="blog" className="py-28 bg-navy px-4">
-      <div className="container mx-auto">
-        <div 
-          ref={headerRef}
-          className={`text-center max-w-3xl mx-auto mb-20 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          <span className="text-gold font-body text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
-            FINANCIAL INSIGHTS
-          </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+    <section id="blog" className="py-28 px-6 bg-navy relative">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16 reveal">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <hr className="w-10 h-[1px] bg-gold border-0" />
+            <span className="text-gold text-xs tracking-[0.2em] uppercase font-medium">FINANCIAL INSIGHTS</span>
+          </div>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
             Latest From Our Blog
           </h2>
-          <p className="text-white/50 text-lg font-body">
+          <p className="text-white/45 text-base max-w-xl mx-auto font-body">
             Stay informed with our latest research and expert advice on banking and finance.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {posts.map((post, index) => (
-            <BlogCard key={index} post={post} index={index} />
+            <div 
+              key={index}
+              className={`reveal group bg-navy-card border border-white/[0.06] rounded-2xl overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-gold/20 hover:shadow-[0_20px_60px_rgba(0,0,0,0.25)] hover:-translate-y-1 delay-${index + 1}`}
+            >
+              <div className="relative h-52 overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="bg-gold/10 backdrop-blur-md text-gold text-[10px] font-bold px-3 py-1 rounded-full tracking-wide uppercase border border-gold/20">
+                    {post.category}
+                  </span>
+                </div>
+              </div>
+              
+              <div className="p-6">
+                <h3 className="font-display text-lg font-semibold text-white leading-snug mb-3 group-hover:text-gold transition-colors duration-300">
+                  {post.title}
+                </h3>
+                <p className="text-white/40 text-sm leading-relaxed line-clamp-2 font-body">
+                  {post.excerpt}
+                </p>
+                
+                <div className="mt-5 pt-4 border-t border-white/[0.05] flex items-center gap-2 text-gold text-sm font-medium group-hover:gap-3 transition-all duration-300">
+                  <span>Read More</span>
+                  <FaArrowRight />
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
     </section>
-  );
-}
-
-function BlogCard({ post, index }) {
-  const cardRef = useRef(null);
-  const isVisible = useInView(cardRef);
-
-  return (
-    <div
-      ref={cardRef}
-      className={`group bg-navy-card rounded-2xl overflow-hidden border border-white/5 hover:border-gold/20 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      } stagger-${(index % 5) + 1}`}
-    >
-      <div className="h-52 overflow-hidden relative">
-        <Image
-          src={post.image}
-          alt={post.title}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div className="absolute top-4 left-4">
-          <span className="bg-gold/90 backdrop-blur-sm text-navy text-[10px] font-bold px-3 py-1 rounded-full tracking-wide uppercase">
-            {post.category}
-          </span>
-        </div>
-      </div>
-      
-      <div className="p-8">
-        <h3 className="font-display text-xl font-semibold text-white mt-3 leading-snug group-hover:text-gold transition-colors duration-300">
-          {post.title}
-        </h3>
-        <p className="text-white/40 text-sm mt-4 leading-relaxed line-clamp-2 font-body">
-          {post.excerpt}
-        </p>
-        
-        <div className="mt-8 flex items-center text-gold text-sm font-medium gap-2 group-hover:gap-4 transition-all duration-300">
-          <span className="tracking-wide">Read More</span>
-          <FaArrowRight className="text-xs" />
-        </div>
-      </div>
-    </div>
   );
 }

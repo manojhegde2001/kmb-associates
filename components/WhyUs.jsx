@@ -1,7 +1,4 @@
-"use client";
-import { useRef } from "react";
 import { FaUserTie, FaBolt, FaSearchDollar } from "react-icons/fa";
-import useInView from "@/hooks/useInView";
 
 export default function WhyUs() {
   const features = [
@@ -23,50 +20,43 @@ export default function WhyUs() {
   ];
 
   return (
-    <section className="py-24 bg-navy-card relative overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3">
+    <section className="py-24 px-6 bg-navy-card border-y border-white/[0.05] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16 reveal">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <hr className="w-10 h-[1px] bg-gold border-0" />
+            <span className="text-gold text-xs tracking-[0.2em] uppercase font-medium">WHY CHOOSE US</span>
+          </div>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+            Our Competitive Advantage
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <WhyUsItem 
-              key={index} 
-              feature={feature} 
-              index={index} 
-              isLast={index === features.length - 1}
-            />
+            <div 
+              key={index}
+              className={`reveal relative p-8 rounded-2xl bg-navy/50 border border-white/[0.05] overflow-hidden group transition-all duration-300 hover:border-gold/20 delay-${index + 1}`}
+            >
+              {/* Top accent */}
+              <div className="w-10 h-[2px] bg-gold mb-8 transition-all duration-300 group-hover:w-16" />
+              
+              {/* Decorative icon */}
+              <div className="absolute top-6 right-6 text-6xl text-white/[0.03] transition-all duration-500 group-hover:text-gold/5 group-hover:scale-110">
+                {feature.icon}
+              </div>
+              
+              <h3 className="font-display text-xl font-semibold text-white mb-4 transition-colors duration-300 group-hover:text-gold">
+                {feature.title}
+              </h3>
+              
+              <p className="text-white/45 text-sm leading-relaxed font-body">
+                {feature.desc}
+              </p>
+            </div>
           ))}
         </div>
       </div>
     </section>
-  );
-}
-
-function WhyUsItem({ feature, index, isLast }) {
-  const itemRef = useRef(null);
-  const isVisible = useInView(itemRef);
-
-  return (
-    <div
-      ref={itemRef}
-      className={`relative p-12 flex flex-col items-start transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      } stagger-${index + 1} ${
-        !isLast ? "md:border-r border-white/5" : ""
-      }`}
-    >
-      {/* Decorative large icon */}
-      <div className="absolute top-8 right-8 text-6xl text-gold/5 pointer-events-none">
-        {feature.icon}
-      </div>
-
-      <div className="w-12 h-0.5 bg-gold mb-8" />
-      
-      <h3 className="text-2xl font-display font-bold text-white mb-4">
-        {feature.title}
-      </h3>
-      
-      <p className="text-white/50 font-body text-sm leading-relaxed max-w-xs">
-        {feature.desc}
-      </p>
-    </div>
   );
 }

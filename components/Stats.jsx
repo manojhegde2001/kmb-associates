@@ -1,56 +1,59 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
-import useInView from "@/hooks/useInView";
 
-const Counter = ({ end, label, isFirst, isLast }) => {
+const StatItem = ({ number, label, isLast }) => {
   const [count, setCount] = useState(0);
-  const containerRef = useRef(null);
-  const isVisible = useInView(containerRef);
-  const [isDone, setIsDone] = useState(false);
-
-  // Extract prefix, number, and suffix
-  const match = end.match(/([^0-9]*)([0-9]+)([^0-9]*)/);
-  const prefix = match ? match[1] : "";
-  const endNum = match ? parseInt(match[2]) : 0;
-  const suffix = match ? match[3] : "";
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
 
   useEffect(() => {
-    if (!isVisible || isDone) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.unobserve(entry.target);
+      }
+    }, { threshold: 0.5 });
 
-    let current = 0;
-    const steps = 30;
-    const stepValue = endNum / steps;
-    let iteration = 0;
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const match = number.match(/([^0-9]*)([0-9]+)([^0-9]*)/);
+    const endNum = match ? parseInt(match[2]) : 0;
+    
+    let start = 0;
+    const duration = 2000;
+    const increment = endNum / (duration / 16);
+    
     const timer = setInterval(() => {
-      iteration++;
-      current += stepValue;
-      
-      if (iteration >= steps) {
+      start += increment;
+      if (start >= endNum) {
         setCount(endNum);
-        setIsDone(true);
         clearInterval(timer);
       } else {
-        setCount(Math.floor(current));
+        setCount(Math.floor(start));
       }
-    }, 50);
+    }, 16);
 
     return () => clearInterval(timer);
-  }, [isVisible, endNum, isDone]);
+  }, [isVisible, number]);
+
+  const match = number.match(/([^0-9]*)([0-9]+)([^0-9]*)/);
+  const prefix = match ? match[1] : "";
+  const suffix = match ? match[3] : "";
 
   return (
     <div 
-      ref={containerRef} 
-      className={`flex flex-col items-center justify-center text-center py-8 md:py-0 relative ${
-        !isLast ? "lg:after:content-[''] lg:after:absolute lg:after:right-0 lg:after:top-1/4 lg:after:h-1/2 lg:after:w-px lg:after:bg-gold/20" : ""
-      }`}
+      ref={ref}
+      className={`flex flex-col items-center text-center px-8 py-4 border-r border-white/[0.06] last:border-r-0 ${isLast ? "border-r-0" : ""}`}
     >
-      <div className={`font-display text-4xl md:text-5xl font-bold text-gold mb-2 transition-all duration-1000 ${isDone ? "animate-[shimmer_2s_infinite]" : ""}`}>
+      <div className="font-display text-5xl md:text-6xl font-bold text-gold leading-none">
         {prefix}{count}{suffix}
       </div>
-      <p className="font-body text-[10px] md:text-xs text-white/50 tracking-[0.2em] uppercase mt-2">
-        {label}
-      </p>
+      <p className="text-white/40 text-xs tracking-[0.15em] uppercase mt-3">{label}</p>
     </div>
   );
 };
@@ -64,19 +67,16 @@ export default function Stats() {
   ];
 
   return (
-    <section className="bg-navy-card border-y border-white/5 py-16 relative overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
-          {stats.map((stat, index) => (
-            <Counter 
-              key={index} 
-              end={stat.number} 
-              label={stat.label} 
-              isFirst={index === 0}
-              isLast={index === stats.length - 1}
-            />
-          ))}
-        </div>
+    <section className="bg-navy-card border-y border-white/[0.05] py-16 px-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 max-w-5xl mx-auto">
+        {stats.map((stat, index) => (
+          <StatItem 
+            key={index} 
+            number={stat.number} 
+            label={stat.label} 
+            isLast={index === stats.length - 1}
+          />
+        ))}
       </div>
     </section>
   );
