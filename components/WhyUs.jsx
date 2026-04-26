@@ -9,7 +9,7 @@ export default function WhyUs() {
     {
       title: "Deep Expertise",
       icon: <FaUserTie />,
-      desc: "30 years of specialized banking experience providing profound insights into financial structures.",
+      desc: "Providing profound insights into financial structures with expert advisory since 2014.",
     },
     {
       title: "Operational Efficiency",
@@ -29,11 +29,11 @@ export default function WhyUs() {
         {/* Header */}
         <div className="text-center mb-16 reveal">
           <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="w-8 h-px bg-[#00C2FF]" />
-            <span className="text-[#00C2FF] text-xs tracking-[0.22em] uppercase font-medium">Why Choose KMB</span>
-            <div className="w-8 h-px bg-[#00C2FF]" />
+            <div className="w-8 h-px bg-[#C9A84C]" />
+            <span className="text-[#C9A84C] text-xs tracking-[0.22em] uppercase font-medium">Why Choose KMB</span>
+            <div className="w-8 h-px bg-[#C9A84C]" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#002B5B] leading-tight mb-4">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1A1A1A] leading-tight mb-4">
             Our Competitive Advantage
           </h2>
         </div>
@@ -42,19 +42,19 @@ export default function WhyUs() {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className={`reveal delay-${index + 1} p-8 bg-[#F4F7FA] rounded-2xl border border-black/[0.03] transition-all duration-300 hover:border-[#00C2FF]/10 group relative overflow-hidden`}
+              className={`reveal delay-${index + 1} p-8 bg-[#F4F7FA] rounded-2xl border border-black/[0.03] transition-all duration-300 hover:border-[#C9A84C]/10 group relative overflow-hidden`}
             >
-              <div className="w-10 h-0.5 bg-[#00C2FF] mb-7 transition-all duration-500 group-hover:w-16" />
+              <div className="w-10 h-0.5 bg-[#C9A84C] mb-7 transition-all duration-500 group-hover:w-16" />
               
-              <div className="text-[#002B5B]/[0.03] text-6xl absolute top-8 right-8 pointer-events-none transition-all duration-500 group-hover:text-[#00C2FF]/10">
+              <div className="text-[#1A1A1A]/[0.03] text-6xl absolute top-8 right-8 pointer-events-none transition-all duration-500 group-hover:text-[#C9A84C]/10">
                 {feature.icon}
               </div>
 
-              <h3 className="font-display text-xl font-semibold text-[#002B5B] mb-3 transition-colors group-hover:text-[#00C2FF]">
+              <h3 className="font-display text-xl font-semibold text-[#1A1A1A] mb-3 transition-colors group-hover:text-[#C9A84C]">
                 {feature.title}
               </h3>
               
-              <p className="text-[#002B5B]/50 text-sm leading-relaxed font-body">
+              <p className="text-[#1A1A1A]/50 text-sm leading-relaxed font-body">
                 {feature.desc}
               </p>
             </div>

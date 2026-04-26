@@ -1,17 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #002B5B;
-  --color-navy-light: #003B7B;
-  --color-brand-light: #00C2FF;
-  --color-brand-dark: #002B5B;
-  
+  --color-charcoal: #1A1A1A;
+  --color-charcoal-light: #333333;
   --color-gold: #C9A84C;
   --color-gold-light: #E2BC6A;
-  --color-gold-soft: rgba(0, 194, 255, 0.1);
+  --color-gold-soft: rgba(201, 168, 76, 0.1);
   --color-white: #FFFFFF;
-  --color-muted: rgba(0, 43, 91, 0.45);
-  --color-border: rgba(0, 43, 91, 0.08);
+  --color-muted: rgba(26, 26, 26, 0.45);
+  --color-border: rgba(26, 26, 26, 0.05);
 
   --font-display: var(--font-playfair);
   --font-body: var(--font-dm-sans);
@@ -69,14 +66,14 @@
 @layer base {
   :root {
     --bg-primary: #FFFFFF;
-    --bg-secondary: #F4F7FA;
+    --bg-secondary: #FAFAFA;
     --bg-card: #FFFFFF;
-    --brand-dark: #002B5B;
-    --brand-light: #00C2FF;
+    --brand-dark: #1A1A1A;
+    --brand-light: #C9A84C;
     --gold: #C9A84C;
-    --text-primary: #002B5B;
-    --text-muted: rgba(0, 43, 91, 0.5);
-    --border: rgba(0, 43, 91, 0.08);
+    --text-primary: #1A1A1A;
+    --text-muted: rgba(26, 26, 26, 0.5);
+    --border: rgba(26, 26, 26, 0.05);
   }
 
   html {

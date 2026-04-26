@@ -50,24 +50,24 @@ const StatItem = ({ number, label, isLast }) => {
       ref={ref}
       className={`flex flex-col items-center text-center px-8 py-4 border-r border-black/[0.05] last:border-r-0 ${isLast ? "border-r-0" : ""}`}
     >
-      <div className="font-display text-5xl md:text-6xl font-bold text-[#00C2FF] leading-none">
+      <div className="font-display text-5xl md:text-6xl font-bold text-[#C9A84C] leading-none">
         {prefix}{count}{suffix}
       </div>
-      <p className="text-[#002B5B]/40 text-[10px] tracking-[0.2em] uppercase mt-4 font-medium">{label}</p>
+      <p className="text-[#1A1A1A]/40 text-[10px] tracking-[0.2em] uppercase mt-4 font-medium">{label}</p>
     </div>
   );
 };
 
 export default function Stats() {
   const stats = [
-    { number: "30+", label: "Years Experience" },
+    { number: "2014", label: "Year Established" },
     { number: "500+", label: "Happy Clients" },
     { number: "4", label: "Loan Products" },
     { number: "₹50L+", label: "Min. Loan Size" },
   ];
 
   return (
-    <section className="bg-[#F4F7FA] border-y border-black/[0.03] py-16 px-6">
+    <section className="bg-[var(--bg-secondary)] border-y border-[var(--border)] py-16 px-6">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 max-w-5xl mx-auto">
         {stats.map((stat, index) => (
           <StatItem 

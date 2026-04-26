@@ -12,46 +12,45 @@ export default function About() {
         {/* Left Content */}
         <div className="reveal-left">
           <div className="flex items-center gap-3 mb-5">
-            <div className="w-8 h-px bg-[#00C2FF]" />
-            <span className="text-[#00C2FF] text-xs tracking-[0.22em] uppercase font-medium">About KMB</span>
+            <div className="w-8 h-px bg-[#C9A84C]" />
+            <span className="text-[#C9A84C] text-xs tracking-[0.22em] uppercase font-medium">About KMB</span>
           </div>
-          
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#002B5B] leading-tight mb-8">
+
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1A1A1A] leading-tight mb-8">
             Expert financial consulting <br />
-            <span className="text-[#00C2FF]">since 1994.</span>
+            <span className="text-[#C9A84C]">since 2014.</span>
           </h2>
-          
-          <p className="text-[#002B5B]/60 leading-relaxed text-base mb-10 font-body">
-            KMB Associates LLP specializes in providing customized end-to-end solutions for sustainable business growth. 
-            With over 30 years of combined expertise in banking and management consulting, we deliver excellence in 
-            debt funding, stressed assets management, and corporate restructuring.
+
+          <p className="text-[#1A1A1A]/60 leading-relaxed text-base mb-10 font-body">
+            KMB Associates LLP specializes in providing customized end-to-end solutions for sustainable business growth.
+            Established in 2014, we deliver excellence in debt funding, stressed assets management, and corporate restructuring.
           </p>
-          
+
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-5 p-5 bg-[#F4F7FA] rounded-xl border border-black/[0.03] group hover:border-[#00C2FF]/20 transition-all duration-300">
-              <div className="w-11 h-11 rounded-xl bg-[#00C2FF]/10 flex items-center justify-center text-[#00C2FF] shrink-0 group-hover:bg-[#00C2FF] group-hover:text-white transition-all duration-500">
+            <div className="flex items-center gap-5 p-5 bg-white rounded-xl border border-black/[0.03] group hover:border-[#C9A84C]/20 transition-all duration-300 shadow-sm hover:shadow-md">
+              <div className="w-11 h-11 rounded-xl bg-[#C9A84C]/10 flex items-center justify-center text-[#C9A84C] shrink-0 group-hover:bg-[#C9A84C] group-hover:text-white transition-all duration-500">
                 <FaAward className="text-xl" />
               </div>
               <div>
-                <p className="font-semibold text-[#002B5B] text-sm">30 Years of Excellence</p>
-                <span className="text-[#002B5B]/40 text-xs">Deep-rooted industry knowledge.</span>
+                <p className="font-semibold text-[#1A1A1A] text-sm">Established 2014</p>
+                <span className="text-[#1A1A1A]/40 text-xs">A decade of financial excellence.</span>
               </div>
             </div>
-            
-            <div className="flex items-center gap-5 p-5 bg-[#F4F7FA] rounded-xl border border-black/[0.03] group hover:border-[#00C2FF]/20 transition-all duration-300">
-              <div className="w-11 h-11 rounded-xl bg-[#00C2FF]/10 flex items-center justify-center text-[#00C2FF] shrink-0 group-hover:bg-[#00C2FF] group-hover:text-white transition-all duration-500">
+
+            <div className="flex items-center gap-5 p-5 bg-white rounded-xl border border-black/[0.03] group hover:border-[#C9A84C]/20 transition-all duration-300 shadow-sm hover:shadow-md">
+              <div className="w-11 h-11 rounded-xl bg-[#C9A84C]/10 flex items-center justify-center text-[#C9A84C] shrink-0 group-hover:bg-[#C9A84C] group-hover:text-white transition-all duration-500">
                 <FaHandshake className="text-xl" />
               </div>
               <div>
-                <p className="font-semibold text-[#002B5B] text-sm">Trusted Advisory</p>
-                <span className="text-[#002B5B]/40 text-xs">Expert negotiation and strategic planning.</span>
+                <p className="font-semibold text-[#1A1A1A] text-sm">Trusted Advisory</p>
+                <span className="text-[#1A1A1A]/40 text-xs">Expert negotiation and strategic planning.</span>
               </div>
             </div>
           </div>
 
-          <a 
-            href="#contact" 
-            className="mt-10 inline-flex items-center gap-2 text-[#00C2FF] font-semibold text-sm hover:gap-4 transition-all duration-300 group"
+          <a
+            href="#contact"
+            className="mt-10 inline-flex items-center gap-2 text-[#C9A84C] font-semibold text-sm hover:gap-4 transition-all duration-300 group"
           >
             Work with our experts <span className="text-lg">→</span>
           </a>
@@ -60,8 +59,8 @@ export default function About() {
         {/* Right Image */}
         <div className="reveal-right delay-2 relative h-[500px]">
           {/* Brand accent border */}
-          <div className="absolute -top-4 -right-4 inset-0 border border-[#00C2FF]/20 rounded-2xl z-0" />
-          
+          <div className="absolute -top-4 -right-4 inset-0 border border-[#C9A84C]/20 rounded-2xl z-0" />
+
           <div className="relative z-10 w-full h-full rounded-2xl overflow-hidden shadow-xl">
             <Image
               src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80"
@@ -72,11 +71,11 @@ export default function About() {
               className="object-cover object-center"
               style={{ objectFit: 'cover', objectPosition: 'center' }}
             />
-            
+
             {/* Experience Badge */}
             <div className="absolute bottom-6 left-6 z-20 bg-white/95 border border-black/[0.05] rounded-xl px-6 py-5 shadow-xl">
-              <div className="font-display text-4xl font-bold text-[#00C2FF]">30+</div>
-              <div className="text-[#002B5B]/40 text-[10px] tracking-widest uppercase font-bold mt-1">Years of Excellence</div>
+              <div className="font-display text-3xl font-bold text-[#C9A84C]">Since 2014</div>
+              <div className="text-[#1A1A1A]/40 text-[10px] tracking-widest uppercase font-bold mt-1">Excellence in Finance</div>
             </div>
           </div>
         </div>

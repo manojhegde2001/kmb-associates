@@ -9,7 +9,7 @@ export default function Footer() {
   const [logoError, setLogoError] = useState(false);
 
   return (
-    <footer className="bg-[#F4F7FA] border-t border-black/[0.05] relative overflow-hidden">
+    <footer className="bg-[var(--bg-secondary)] border-t border-[var(--border)] relative overflow-hidden">
       <div className="py-14 px-6 max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10">
         {/* Col 1 */}
         <div className="col-span-2 md:col-span-1">
@@ -25,25 +25,25 @@ export default function Footer() {
               />
             ) : (
               <span style={{fontFamily:'var(--font-playfair)'}}>
-                <span className="text-[#002B5B] font-bold text-xl">KMB</span>
-                <span className="text-[#00C2FF] font-bold text-xl"> Associates</span>
+                <span className="text-[#1A1A1A] font-bold text-xl">KMB</span>
+                <span className="text-[#C9A84C] font-bold text-xl"> Associates</span>
               </span>
             )}
           </Link>
-          <p className="text-[#002B5B]/40 text-sm mt-4 leading-relaxed max-w-xs font-body">
+          <p className="text-[#1A1A1A]/40 text-sm mt-4 leading-relaxed max-w-xs font-body">
             &quot;You&apos;ve arrived at the ultimate financing destination!&quot; Solutions for all your financial needs.
           </p>
         </div>
 
         {/* Col 2 */}
         <div>
-          <h4 className="text-[10px] text-[#00C2FF] tracking-[0.2em] uppercase font-bold mb-6">Quick Links</h4>
+          <h4 className="text-[10px] text-[#C9A84C] tracking-[0.2em] uppercase font-bold mb-6">Quick Links</h4>
           <ul className="flex flex-col">
             {["Home", "Services", "About", "Blog", "Contact"].map((link) => (
               <li key={link}>
                 <Link 
                   href={`#${link.toLowerCase()}`} 
-                  className="text-[#002B5B]/40 text-sm hover:text-[#002B5B] transition-colors leading-9 font-body"
+                  className="text-[#1A1A1A]/40 text-sm hover:text-[#1A1A1A] transition-colors leading-9 font-body"
                 >
                   {link}
                 </Link>
@@ -54,13 +54,13 @@ export default function Footer() {
 
         {/* Col 3 */}
         <div>
-          <h4 className="text-[10px] text-[#00C2FF] tracking-[0.2em] uppercase font-bold mb-6">Our Services</h4>
+          <h4 className="text-[10px] text-[#C9A84C] tracking-[0.2em] uppercase font-bold mb-6">Our Services</h4>
           <ul className="flex flex-col">
             {["Home Loan", "Mortgage Loan", "Business Loan", "MSME Loan"].map((service) => (
               <li key={service}>
                 <Link 
                   href="#services" 
-                  className="text-[#002B5B]/40 text-sm hover:text-[#002B5B] transition-colors leading-9 font-body"
+                  className="text-[#1A1A1A]/40 text-sm hover:text-[#1A1A1A] transition-colors leading-9 font-body"
                 >
                   {service}
                 </Link>
@@ -71,12 +71,12 @@ export default function Footer() {
 
         {/* Col 4 */}
         <div>
-          <h4 className="text-[10px] text-[#00C2FF] tracking-[0.2em] uppercase font-bold mb-6">Contact Details</h4>
-          <div className="text-[#002B5B]/40 text-sm leading-8 font-body mt-2">
+          <h4 className="text-[10px] text-[#C9A84C] tracking-[0.2em] uppercase font-bold mb-6">Contact Details</h4>
+          <div className="text-[#1A1A1A]/40 text-sm leading-8 font-body mt-2">
             <p>No.308, Shreshta Bhumi No 87,</p>
             <p>K R Road, V V Puram,</p>
             <p>Bengaluru 560004</p>
-            <p className="mt-4 text-[#002B5B] font-medium">+91 99646 26265</p>
+            <p className="mt-4 text-[#1A1A1A] font-medium">+91 99646 26265</p>
             <p>vikram@kmbassociates.in</p>
           </div>
         </div>
@@ -84,13 +84,13 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-black/[0.04] mt-12 pt-6 pb-8 px-6 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-[#002B5B]/25 text-xs font-body">© {currentYear} KMB Associates LLP. ALL RIGHTS RESERVED.</p>
+        <p className="text-[#1A1A1A]/25 text-xs font-body">© {currentYear} KMB Associates LLP. ALL RIGHTS RESERVED.</p>
         <div className="flex gap-4">
           {[FaFacebook, FaLinkedin, FaInstagram, FaYoutube].map((Icon, idx) => (
             <a
               key={idx}
               href="#"
-              className="text-[#002B5B]/20 hover:text-[#00C2FF] transition-all duration-300"
+              className="text-[#1A1A1A]/20 hover:text-[#C9A84C] transition-all duration-300"
             >
               <Icon className="text-lg" />
             </a>

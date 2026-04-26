@@ -26,8 +26,8 @@ export default function Hero() {
       <div style={{
         position: 'absolute', inset: 0, zIndex: 1,
         background: `
-          radial-gradient(ellipse 80% 60% at 20% 40%, rgba(0, 194, 255, 0.08) 0%, transparent 60%),
-          radial-gradient(ellipse 60% 80% at 80% 20%, rgba(0, 43, 91, 0.06) 0%, transparent 55%)
+          radial-gradient(ellipse 80% 60% at 20% 40%, rgba(201, 168, 76, 0.08) 0%, transparent 60%),
+          radial-gradient(ellipse 60% 80% at 80% 20%, rgba(26, 26, 26, 0.06) 0%, transparent 55%)
         `,
         backgroundSize: '300% 300%',
         animation: 'meshShift 18s ease infinite',
@@ -40,7 +40,7 @@ export default function Hero() {
         width: '50vw', height: '50vw',
         maxWidth: '600px', maxHeight: '600px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle at center, rgba(0, 194, 255, 0.1) 0%, transparent 70%)',
+        background: 'radial-gradient(circle at center, rgba(201, 168, 76, 0.1) 0%, transparent 70%)',
         filter: 'blur(80px)',
         animation: 'orbFloat1 22s ease-in-out infinite',
       }} />
@@ -51,7 +51,7 @@ export default function Hero() {
         width: '45vw', height: '45vw',
         maxWidth: '500px', maxHeight: '500px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle at center, rgba(0, 43, 91, 0.08) 0%, transparent 70%)',
+        background: 'radial-gradient(circle at center, rgba(26, 26, 26, 0.08) 0%, transparent 70%)',
         filter: 'blur(100px)',
         animation: 'orbFloat2 28s ease-in-out infinite',
       }} />
@@ -71,16 +71,16 @@ export default function Hero() {
             className="font-display leading-[1.1] mb-6 drop-shadow-sm"
             style={{ animation: 'heroFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s both' }}
           >
-            <span className="block text-5xl md:text-6xl lg:text-[72px] text-[#002B5B] font-bold">You&apos;ve arrived at the</span>
-            <span className="block text-5xl md:text-6xl lg:text-[72px] text-[#00C2FF] italic font-bold">ultimate financing</span>
-            <span className="block text-5xl md:text-6xl lg:text-[72px] text-[#002B5B] font-bold">destination!</span>
+            <span className="block text-5xl md:text-6xl lg:text-[72px] text-[#1A1A1A] font-bold">You&apos;ve arrived at the</span>
+            <span className="block text-5xl md:text-6xl lg:text-[72px] text-[#C9A84C] italic font-bold">ultimate financing</span>
+            <span className="block text-5xl md:text-6xl lg:text-[72px] text-[#1A1A1A] font-bold">destination!</span>
           </h1>
           
           <p 
-            className="font-body text-[#002B5B] text-lg md:text-xl leading-relaxed max-w-2xl mb-10 font-medium drop-shadow-sm"
+            className="font-body text-[#1A1A1A] text-lg md:text-xl leading-relaxed max-w-2xl mb-10 font-medium drop-shadow-sm"
             style={{ animation: 'heroFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.5s both' }}
           >
-            Providing expert solutions for debt funding, stressed assets, and corporate restructuring. 30 years of excellence in banking advisory.
+            Providing expert solutions for debt funding, stressed assets, and corporate restructuring. Excellence since 2014 in banking advisory.
           </p>
           
           <div 
@@ -89,13 +89,13 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="bg-[#002B5B] text-white font-bold px-8 py-4 rounded-full text-sm tracking-wide hover:bg-[#003B7B] hover:shadow-[0_10px_30px_rgba(0,43,91,0.3)] transition-all duration-300 hover:scale-105"
+              className="bg-[#C9A84C] text-white font-bold px-8 py-4 rounded-full text-sm tracking-wide hover:bg-[#E2BC6A] hover:shadow-[0_10px_30px_rgba(201,168,76,0.3)] transition-all duration-300 hover:scale-105"
             >
               Get In Touch
             </a>
             <a
               href="#services"
-              className="bg-white/40 backdrop-blur-sm border border-[#00C2FF]/35 text-[#00C2FF] px-8 py-4 rounded-full text-sm tracking-wide hover:bg-white/80 transition-all duration-300"
+              className="bg-white/40 backdrop-blur-sm border border-[#C9A84C]/35 text-[#C9A84C] px-8 py-4 rounded-full text-sm tracking-wide hover:bg-white/80 transition-all duration-300"
             >
               Our Services
             </a>

@@ -30,16 +30,16 @@ export default function Blog() {
   ];
 
   return (
-    <section ref={ref} id="blog" className="py-24 md:py-32 px-6 bg-[#F4F7FA]">
+    <section ref={ref} id="blog" className="py-24 md:py-32 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 reveal">
           <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="w-8 h-px bg-[#00C2FF]" />
-            <span className="text-[#00C2FF] text-xs tracking-[0.22em] uppercase font-medium">Financial Insights</span>
-            <div className="w-8 h-px bg-[#00C2FF]" />
+            <div className="w-8 h-px bg-[#C9A84C]" />
+            <span className="text-[#C9A84C] text-xs tracking-[0.22em] uppercase font-medium">Financial Insights</span>
+            <div className="w-8 h-px bg-[#C9A84C]" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#002B5B] leading-tight">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1A1A1A] leading-tight">
             Latest From Our Blog
           </h2>
         </div>
@@ -49,7 +49,7 @@ export default function Blog() {
           {posts.map((post, index) => (
             <div 
               key={index}
-              className={`reveal delay-${index + 1} group bg-white border border-black/[0.04] rounded-2xl overflow-hidden transition-all duration-350 ease-in-out hover:border-[#00C2FF]/20 hover:-translate-y-1 hover:shadow-lg`}
+              className={`reveal delay-${index + 1} group bg-white border border-black/[0.04] rounded-2xl overflow-hidden transition-all duration-350 ease-in-out hover:border-[#C9A84C]/20 hover:-translate-y-1 hover:shadow-lg`}
             >
               <div className="relative h-48 overflow-hidden">
                 <Image
@@ -64,21 +64,21 @@ export default function Blog() {
               </div>
               
               <div className="p-6">
-                <span className="bg-[#00C2FF]/10 text-[#00C2FF] text-[11px] tracking-wide px-3 py-1 rounded-full font-semibold">
+                <span className="bg-[#C9A84C]/10 text-[#C9A84C] text-[11px] tracking-wide px-3 py-1 rounded-full font-semibold">
                   {post.category}
                 </span>
                 
-                <h3 className="font-display text-base font-semibold text-[#002B5B] mt-4 mb-2 group-hover:text-[#00C2FF] transition-colors leading-snug">
+                <h3 className="font-display text-base font-semibold text-[#1A1A1A] mt-4 mb-2 group-hover:text-[#C9A84C] transition-colors leading-snug">
                   {post.title}
                 </h3>
                 
-                <p className="text-[#002B5B]/50 text-sm leading-relaxed line-clamp-2 font-body mb-5">
+                <p className="text-[#1A1A1A]/50 text-sm leading-relaxed line-clamp-2 font-body mb-5">
                   {post.excerpt}
                 </p>
                 
                 <a 
                   href="#contact"
-                  className="pt-4 border-t border-black/[0.05] text-[#00C2FF] text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all"
+                  className="pt-4 border-t border-black/[0.05] text-[#C9A84C] text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all"
                 >
                   Read More <span>→</span>
                 </a>

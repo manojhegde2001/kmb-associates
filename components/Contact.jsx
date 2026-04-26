@@ -32,13 +32,13 @@ export default function Contact() {
         {/* Header */}
         <div className="text-center mb-16 reveal">
           <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="w-8 h-px bg-[#00C2FF]" />
-            <span className="text-[#00C2FF] text-xs tracking-[0.22em] uppercase font-medium">Get in Touch</span>
-            <div className="w-8 h-px bg-[#00C2FF]" />
+            <div className="w-8 h-px bg-[#C9A84C]" />
+            <span className="text-[#C9A84C] text-xs tracking-[0.22em] uppercase font-medium">Get in Touch</span>
+            <div className="w-8 h-px bg-[#C9A84C]" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#002B5B] leading-tight">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1A1A1A] leading-tight">
             Ready to start your <br />
-            <span className="text-[#00C2FF]">financial journey?</span>
+            <span className="text-[#C9A84C]">financial journey?</span>
           </h2>
         </div>
 
@@ -47,32 +47,32 @@ export default function Contact() {
           <div className="lg:col-span-2 reveal-left">
             <div className="space-y-8">
               <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-[#00C2FF]/10 text-[#00C2FF] flex items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-[#C9A84C]/10 text-[#C9A84C] flex items-center justify-center shrink-0">
                   <FaMapMarkerAlt className="text-xl" />
                 </div>
                 <div>
-                  <span className="text-[10px] text-[#002B5B]/30 uppercase tracking-[0.18em] block mb-1 font-bold">Our Location</span>
-                  <p className="text-[#002B5B] text-sm font-medium leading-relaxed">No.308, Shreshta Bhumi No 87, K R Road, V V Puram, Bengaluru 560004</p>
+                  <span className="text-[10px] text-[#1A1A1A]/30 uppercase tracking-[0.18em] block mb-1 font-bold">Our Location</span>
+                  <p className="text-[#1A1A1A] text-sm font-medium leading-relaxed">No.308, Shreshta Bhumi No 87, K R Road, V V Puram, Bengaluru 560004</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-[#00C2FF]/10 text-[#00C2FF] flex items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-[#C9A84C]/10 text-[#C9A84C] flex items-center justify-center shrink-0">
                   <FaPhone className="text-xl" />
                 </div>
                 <div>
-                  <span className="text-[10px] text-[#002B5B]/30 uppercase tracking-[0.18em] block mb-1 font-bold">Call Us</span>
-                  <p className="text-[#002B5B] text-sm font-medium">9964626265 | 9740562900</p>
+                  <span className="text-[10px] text-[#1A1A1A]/30 uppercase tracking-[0.18em] block mb-1 font-bold">Call Us</span>
+                  <p className="text-[#1A1A1A] text-sm font-medium">9964626265 | 9740562900</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-[#00C2FF]/10 text-[#00C2FF] flex items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-[#C9A84C]/10 text-[#C9A84C] flex items-center justify-center shrink-0">
                   <FaEnvelope className="text-xl" />
                 </div>
                 <div>
-                  <span className="text-[10px] text-[#002B5B]/30 uppercase tracking-[0.18em] block mb-1 font-bold">Email Us</span>
-                  <p className="text-[#002B5B] text-sm font-medium">vikram@kmbassociates.in</p>
+                  <span className="text-[10px] text-[#1A1A1A]/30 uppercase tracking-[0.18em] block mb-1 font-bold">Email Us</span>
+                  <p className="text-[#1A1A1A] text-sm font-medium">vikram@kmbassociates.in</p>
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@ export default function Contact() {
                 <a
                   key={idx}
                   href="#"
-                  className="w-10 h-10 rounded-full border border-[#002B5B]/10 flex items-center justify-center text-[#002B5B]/20 hover:border-[#00C2FF] hover:text-[#00C2FF] hover:bg-[#00C2FF]/5 transition-all duration-300"
+                  className="w-10 h-10 rounded-full border border-[#1A1A1A]/10 flex items-center justify-center text-[#1A1A1A]/20 hover:border-[#C9A84C] hover:text-[#C9A84C] hover:bg-[#C9A84C]/5 transition-all duration-300"
                 >
                   <Icon className="text-sm" />
                 </a>
@@ -95,12 +95,12 @@ export default function Contact() {
             <div className="bg-[#F4F7FA] border border-black/[0.04] rounded-2xl p-8 md:p-10 shadow-sm">
               {submitted ? (
                 <div className="text-center py-16 animate-fadeInUp">
-                  <FaCheckCircle className="text-[#00C2FF] text-5xl mx-auto mb-5" />
-                  <h3 className="font-display text-2xl text-[#002B5B] mb-2 font-bold">Message Sent!</h3>
-                  <p className="text-[#002B5B]/40 text-sm font-body">Thank you. We&apos;ll contact you shortly.</p>
+                  <FaCheckCircle className="text-[#C9A84C] text-5xl mx-auto mb-5" />
+                  <h3 className="font-display text-2xl text-[#1A1A1A] mb-2 font-bold">Message Sent!</h3>
+                  <p className="text-[#1A1A1A]/40 text-sm font-body">Thank you. We&apos;ll contact you shortly.</p>
                   <button 
                     onClick={() => setSubmitted(false)}
-                    className="mt-8 text-[#00C2FF] font-semibold text-sm underline hover:text-[#003B7B] transition-colors"
+                    className="mt-8 text-[#C9A84C] font-semibold text-sm underline hover:text-[#1A1A1A] transition-colors"
                   >
                     Send another message
                   </button>
@@ -109,51 +109,51 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
-                      <label className="block text-[10px] text-[#002B5B]/30 uppercase tracking-[0.18em] mb-2 font-bold">Full Name</label>
+                      <label className="block text-[10px] text-[#1A1A1A]/30 uppercase tracking-[0.18em] mb-2 font-bold">Full Name</label>
                       <input
                         type="text"
                         name="name"
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full bg-transparent border-0 border-b border-[#002B5B]/10 focus:border-[#00C2FF] outline-none py-3 text-[#002B5B] placeholder:text-[#002B5B]/20 text-sm transition-colors duration-300 caret-[#00C2FF]"
+                        className="w-full bg-transparent border-0 border-b border-[#1A1A1A]/10 focus:border-[#C9A84C] outline-none py-3 text-[#1A1A1A] placeholder:text-[#1A1A1A]/20 text-sm transition-colors duration-300 caret-[#C9A84C]"
                         placeholder="Rahul Sharma"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] text-[#002B5B]/30 uppercase tracking-[0.18em] mb-2 font-bold">Phone Number</label>
+                      <label className="block text-[10px] text-[#1A1A1A]/30 uppercase tracking-[0.18em] mb-2 font-bold">Phone Number</label>
                       <input
                         type="tel"
                         name="phone"
                         required
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full bg-transparent border-0 border-b border-[#002B5B]/10 focus:border-[#00C2FF] outline-none py-3 text-[#002B5B] placeholder:text-[#002B5B]/20 text-sm transition-colors duration-300 caret-[#00C2FF]"
+                        className="w-full bg-transparent border-0 border-b border-[#1A1A1A]/10 focus:border-[#C9A84C] outline-none py-3 text-[#1A1A1A] placeholder:text-[#1A1A1A]/20 text-sm transition-colors duration-300 caret-[#C9A84C]"
                         placeholder="+91 99XXX XXXXX"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[10px] text-[#002B5B]/30 uppercase tracking-[0.18em] mb-2 font-bold">Email Address</label>
+                    <label className="block text-[10px] text-[#1A1A1A]/30 uppercase tracking-[0.18em] mb-2 font-bold">Email Address</label>
                     <input
                       type="email"
                       name="email"
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-0 border-b border-[#002B5B]/10 focus:border-[#00C2FF] outline-none py-3 text-[#002B5B] placeholder:text-[#002B5B]/20 text-sm transition-colors duration-300 caret-[#00C2FF]"
+                      className="w-full bg-transparent border-0 border-b border-[#1A1A1A]/10 focus:border-[#C9A84C] outline-none py-3 text-[#1A1A1A] placeholder:text-[#1A1A1A]/20 text-sm transition-colors duration-300 caret-[#C9A84C]"
                       placeholder="rahul@example.com"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[10px] text-[#002B5B]/30 uppercase tracking-[0.18em] mb-2 font-bold">Loan Type</label>
+                    <label className="block text-[10px] text-[#1A1A1A]/30 uppercase tracking-[0.18em] mb-2 font-bold">Loan Type</label>
                     <select
                       name="loanType"
                       value={formData.loanType}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-0 border-b border-[#002B5B]/10 focus:border-[#00C2FF] outline-none py-3 text-[#002B5B] appearance-none cursor-pointer text-sm transition-colors duration-300"
+                      className="w-full bg-transparent border-0 border-b border-[#1A1A1A]/10 focus:border-[#C9A84C] outline-none py-3 text-[#1A1A1A] appearance-none cursor-pointer text-sm transition-colors duration-300"
                     >
                       <option className="bg-white">Home Loan</option>
                       <option className="bg-white">Mortgage Loan</option>
@@ -163,21 +163,21 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-[10px] text-[#002B5B]/30 uppercase tracking-[0.18em] mb-2 font-bold">Your Message</label>
+                    <label className="block text-[10px] text-[#1A1A1A]/30 uppercase tracking-[0.18em] mb-2 font-bold">Your Message</label>
                     <textarea
                       name="message"
                       rows="3"
                       required
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full bg-transparent border-0 border-b border-[#002B5B]/10 focus:border-[#00C2FF] outline-none py-3 text-[#002B5B] placeholder:text-[#002B5B]/20 text-sm transition-colors duration-300 resize-none caret-[#00C2FF]"
+                      className="w-full bg-transparent border-0 border-b border-[#1A1A1A]/10 focus:border-[#C9A84C] outline-none py-3 text-[#1A1A1A] placeholder:text-[#1A1A1A]/20 text-sm transition-colors duration-300 resize-none caret-[#C9A84C]"
                       placeholder="Tell us about your requirements..."
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full mt-4 bg-[#002B5B] text-white font-bold py-4 rounded-xl hover:bg-[#003B7B] hover:shadow-[0_0_30px_rgba(0,43,91,0.15)] transition-all duration-300 hover:scale-[1.01] tracking-wide text-sm"
+                    className="w-full mt-4 bg-[#C9A84C] text-white font-bold py-4 rounded-xl hover:bg-[#E2BC6A] hover:shadow-[0_0_30px_rgba(201,168,76,0.15)] transition-all duration-300 hover:scale-[1.01] tracking-wide text-sm"
                   >
                     Send Message
                   </button>
