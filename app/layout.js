@@ -27,6 +27,9 @@ export const metadata = {
       'Expert loan consulting for Home, Mortgage, Business and MSME loans. 30 years of banking experience.',
     type: 'website',
   },
+  icons: {
+    icon: '/icon.png',
+  },
 };
 
 export default function RootLayout({ children }) {
