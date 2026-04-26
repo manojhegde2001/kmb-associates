@@ -50,10 +50,10 @@ const StatItem = ({ number, label, isLast }) => {
       ref={ref}
       className={`flex flex-col items-center text-center px-8 py-4 border-r border-white/[0.06] last:border-r-0 ${isLast ? "border-r-0" : ""}`}
     >
-      <div className="font-display text-5xl md:text-6xl font-bold text-gold leading-none">
+      <div className="font-display text-5xl md:text-6xl font-bold text-[#C9A84C] leading-none">
         {prefix}{count}{suffix}
       </div>
-      <p className="text-white/40 text-xs tracking-[0.15em] uppercase mt-3">{label}</p>
+      <p className="text-white/40 text-[10px] tracking-[0.2em] uppercase mt-4 font-medium">{label}</p>
     </div>
   );
 };
@@ -67,7 +67,7 @@ export default function Stats() {
   ];
 
   return (
-    <section className="bg-navy-card border-y border-white/[0.05] py-16 px-6">
+    <section className="bg-[#0D1A2D] border-y border-white/[0.05] py-16 px-6">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 max-w-5xl mx-auto">
         {stats.map((stat, index) => (
           <StatItem 

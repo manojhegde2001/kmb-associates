@@ -7,21 +7,18 @@ import WhyUs from "@/components/WhyUs";
 import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import RevealWrapper from "@/components/RevealWrapper";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-navy selection:bg-gold selection:text-navy">
+    <main className="min-h-screen bg-[#08111E]">
       <Navbar />
       <Hero />
-      <RevealWrapper>
-        <Stats />
-        <About />
-        <Services />
-        <WhyUs />
-        <Blog />
-        <Contact />
-      </RevealWrapper>
+      <Stats />
+      <About />
+      <Services />
+      <WhyUs />
+      <Blog />
+      <Contact />
       <Footer />
     </main>
   );

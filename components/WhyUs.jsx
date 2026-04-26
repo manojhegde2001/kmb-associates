@@ -1,33 +1,39 @@
+"use client";
 import { FaUserTie, FaBolt, FaSearchDollar } from "react-icons/fa";
+import { useReveal } from "@/hooks/useReveal";
 
 export default function WhyUs() {
+  const ref = useReveal();
+
   const features = [
     {
-      title: "Expertise",
+      title: "Deep Expertise",
       icon: <FaUserTie />,
-      desc: "30 years of banking experience providing deep insights into financial structures.",
+      desc: "30 years of specialized banking experience providing profound insights into financial structures.",
     },
     {
-      title: "Efficiency",
+      title: "Operational Efficiency",
       icon: <FaBolt />,
-      desc: "Proper assessment, guidance & negotiation with banks for better rates/terms.",
+      desc: "Streamlined assessment and negotiation processes to secure the most favorable market rates.",
     },
     {
-      title: "Advisory",
+      title: "Banking Advisory",
       icon: <FaSearchDollar />,
-      desc: "Specialized corporate experience and research capabilities in banking advisory.",
+      desc: "Comprehensive research and corporate advisory capabilities focused on banking and debt instruments.",
     },
   ];
 
   return (
-    <section className="py-24 px-6 bg-navy-card border-y border-white/[0.05] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section ref={ref} className="py-24 px-6 bg-[#08111E]">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
         <div className="text-center mb-16 reveal">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <hr className="w-10 h-[1px] bg-gold border-0" />
-            <span className="text-gold text-xs tracking-[0.2em] uppercase font-medium">WHY CHOOSE US</span>
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="w-8 h-px bg-[#C9A84C]" />
+            <span className="text-[#C9A84C] text-xs tracking-[0.22em] uppercase font-medium">Why Choose KMB</span>
+            <div className="w-8 h-px bg-[#C9A84C]" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#EEE9DF] leading-tight mb-4">
             Our Competitive Advantage
           </h2>
         </div>
@@ -36,21 +42,19 @@ export default function WhyUs() {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className={`reveal relative p-8 rounded-2xl bg-navy/50 border border-white/[0.05] overflow-hidden group transition-all duration-300 hover:border-gold/20 delay-${index + 1}`}
+              className={`reveal delay-${index + 1} p-8 bg-[#0D1A2D] rounded-2xl border border-[rgba(255,255,255,0.05)] transition-all duration-300 hover:border-[#C9A84C]/10 group`}
             >
-              {/* Top accent */}
-              <div className="w-10 h-[2px] bg-gold mb-8 transition-all duration-300 group-hover:w-16" />
+              <div className="w-10 h-0.5 bg-[#C9A84C] mb-7 transition-all duration-500 group-hover:w-16" />
               
-              {/* Decorative icon */}
-              <div className="absolute top-6 right-6 text-6xl text-white/[0.03] transition-all duration-500 group-hover:text-gold/5 group-hover:scale-110">
+              <div className="text-[#C9A84C]/10 text-6xl absolute top-8 right-8 pointer-events-none transition-all duration-500 group-hover:text-[#C9A84C]/20">
                 {feature.icon}
               </div>
-              
-              <h3 className="font-display text-xl font-semibold text-white mb-4 transition-colors duration-300 group-hover:text-gold">
+
+              <h3 className="font-display text-xl font-semibold text-[#EEE9DF] mb-3 transition-colors group-hover:text-[#C9A84C]">
                 {feature.title}
               </h3>
               
-              <p className="text-white/45 text-sm leading-relaxed font-body">
+              <p className="text-[rgba(238,233,223,0.45)] text-sm leading-relaxed font-body">
                 {feature.desc}
               </p>
             </div>

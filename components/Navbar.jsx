@@ -7,6 +7,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollWidth, setScrollWidth] = useState(0);
+  const [logoError, setLogoError] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +31,7 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="relative">
+    <>
       {/* Scroll Progress Bar */}
       <div 
         id="scroll-progress" 
@@ -38,23 +39,31 @@ export default function Navbar() {
       />
 
       <nav
-        className={`fixed top-0 w-full z-50 h-[72px] flex items-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed top-0 w-full z-50 h-[72px] flex items-center transition-all duration-400 ease-in-out ${
           isScrolled
-            ? "bg-[rgba(10,22,40,0.85)] backdrop-blur-xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
+            ? "bg-[rgba(8,17,30,0.90)] backdrop-blur-xl border-b border-white/[0.06] shadow-lg"
             : "bg-transparent border-b border-transparent"
         }`}
       >
-        <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
+        <div className="container mx-auto px-6 max-w-7xl flex justify-between items-center h-full">
           {/* Logo */}
-          <Link href="/" className="relative z-50">
-            <Image 
-              src="/KMB Logo.png" 
-              alt="KMB Associates Logo" 
-              width={120} 
-              height={48} 
-              className="object-contain"
-              priority
-            />
+          <Link href="/" className="relative z-50 flex items-center">
+            {!logoError ? (
+              <Image 
+                src="/KMB Logo.png" 
+                alt="KMB Associates" 
+                width={130} 
+                height={48} 
+                className="object-contain"
+                priority
+                onError={() => setLogoError(true)}
+              />
+            ) : (
+              <span style={{fontFamily:'var(--font-playfair)'}}>
+                <span className="text-white font-bold text-xl">KMB</span>
+                <span className="text-[#C9A84C] font-bold text-xl"> Associates</span>
+              </span>
+            )}
           </Link>
 
           {/* Desktop Nav */}
@@ -63,16 +72,15 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-[13px] tracking-[0.12em] uppercase font-medium text-white/60 hover:text-gold transition-colors duration-300 relative group"
+                className="text-[12px] tracking-[0.14em] uppercase text-[rgba(238,233,223,0.55)] hover:text-[#C9A84C] transition-colors duration-300 font-medium"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
             
             <Link 
               href="#contact"
-              className="bg-gold text-navy font-semibold text-[13px] tracking-wide px-5 py-2.5 rounded-full hover:bg-gold-light hover:shadow-[0_0_20px_rgba(201,168,76,0.35)] transition-all duration-300 hover:scale-105 ml-4"
+              className="bg-[#C9A84C] text-[#08111E] font-bold text-[12px] tracking-wide px-5 py-2.5 rounded-full hover:bg-[#E2BC6A] hover:shadow-[0_0_24px_rgba(201,168,76,0.4)] transition-all duration-300 ml-4"
             >
               Get In Touch
             </Link>
@@ -80,7 +88,7 @@ export default function Navbar() {
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden relative z-50 w-8 h-8 flex flex-col justify-center items-center gap-1.5 focus:outline-none"
+            className="md:hidden relative z-50 w-8 h-8 flex flex-col justify-center items-center gap-1.5 focus:outline-none group"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
@@ -91,7 +99,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div
-          className={`fixed inset-0 bg-[#0A1628]/98 backdrop-blur-2xl z-40 flex flex-col items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          className={`fixed inset-0 bg-[#08111E]/98 backdrop-blur-2xl z-40 flex flex-col items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
             isMenuOpen ? "translate-y-0" : "translate-y-full"
           }`}
         >
@@ -116,6 +124,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 }

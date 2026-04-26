@@ -1,76 +1,87 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
-import { FaArrowRight } from "react-icons/fa";
+import { useReveal } from "@/hooks/useReveal";
 
 export default function Blog() {
+  const ref = useReveal();
+  const [imgErrors, setImgErrors] = useState({});
+
   const posts = [
     {
       title: "Know More About Your CIBIL Score and Report",
-      excerpt: "Why credit score matters for loan sanction and how to maintain a healthy financial profile.",
+      excerpt: "Understanding the critical role of credit scores in loan sanctions and financial health maintenance.",
       image: "/Credit.png",
+      fallback: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80",
       category: "Credit Tips",
     },
     {
       title: "Home Loan Interest Rates",
-      excerpt: "Comparison of lowest home loan interest rates in India and what to look for beyond percentages.",
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80",
+      excerpt: "A comprehensive comparison of current market rates and strategic advice beyond just the percentages.",
+      image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80",
       category: "Home Loans",
     },
     {
-      title: "Various Types of Bank Loans in India",
-      excerpt: "An extensive overview of loan types available for businesses and individuals in the current market.",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
+      title: "Types of Bank Loans in India",
+      excerpt: "An essential guide to the various credit facilities available for businesses and individuals.",
+      image: "https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=600&q=80",
       category: "Finance Guide",
     },
   ];
 
   return (
-    <section id="blog" className="py-28 px-6 bg-navy relative">
-      <div className="max-w-7xl mx-auto">
+    <section ref={ref} id="blog" className="py-24 md:py-32 px-6 bg-[#0D1A2D]">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
         <div className="text-center mb-16 reveal">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <hr className="w-10 h-[1px] bg-gold border-0" />
-            <span className="text-gold text-xs tracking-[0.2em] uppercase font-medium">FINANCIAL INSIGHTS</span>
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="w-8 h-px bg-[#C9A84C]" />
+            <span className="text-[#C9A84C] text-xs tracking-[0.22em] uppercase font-medium">Financial Insights</span>
+            <div className="w-8 h-px bg-[#C9A84C]" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#EEE9DF] leading-tight">
             Latest From Our Blog
           </h2>
-          <p className="text-white/45 text-base max-w-xl mx-auto font-body">
-            Stay informed with our latest research and expert advice on banking and finance.
-          </p>
         </div>
 
+        {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {posts.map((post, index) => (
             <div 
               key={index}
-              className={`reveal group bg-navy-card border border-white/[0.06] rounded-2xl overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-gold/20 hover:shadow-[0_20px_60px_rgba(0,0,0,0.25)] hover:-translate-y-1 delay-${index + 1}`}
+              className={`reveal delay-${index + 1} group bg-[#111F33] border border-[rgba(255,255,255,0.06)] rounded-2xl overflow-hidden transition-all duration-350 ease-in-out hover:border-[#C9A84C]/20 hover:-translate-y-1`}
             >
-              <div className="relative h-52 overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
                 <Image
-                  src={post.image}
+                  src={imgErrors[index] ? (post.fallback || post.image) : post.image}
                   alt={post.title}
                   fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  loading="lazy"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                  onError={() => setImgErrors(prev => ({ ...prev, [index]: true }))}
                 />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-gold/10 backdrop-blur-md text-gold text-[10px] font-bold px-3 py-1 rounded-full tracking-wide uppercase border border-gold/20">
-                    {post.category}
-                  </span>
-                </div>
               </div>
               
               <div className="p-6">
-                <h3 className="font-display text-lg font-semibold text-white leading-snug mb-3 group-hover:text-gold transition-colors duration-300">
+                <span className="bg-[#C9A84C]/10 text-[#C9A84C] text-[11px] tracking-wide px-3 py-1 rounded-full font-semibold">
+                  {post.category}
+                </span>
+                
+                <h3 className="font-display text-base font-semibold text-[#EEE9DF] mt-4 mb-2 group-hover:text-[#C9A84C] transition-colors leading-snug">
                   {post.title}
                 </h3>
-                <p className="text-white/40 text-sm leading-relaxed line-clamp-2 font-body">
+                
+                <p className="text-white/35 text-sm leading-relaxed line-clamp-2 font-body mb-5">
                   {post.excerpt}
                 </p>
                 
-                <div className="mt-5 pt-4 border-t border-white/[0.05] flex items-center gap-2 text-gold text-sm font-medium group-hover:gap-3 transition-all duration-300">
-                  <span>Read More</span>
-                  <FaArrowRight />
-                </div>
+                <a 
+                  href="#contact"
+                  className="pt-4 border-t border-white/[0.05] text-[#C9A84C] text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all"
+                >
+                  Read More <span>→</span>
+                </a>
               </div>
             </div>
           ))}

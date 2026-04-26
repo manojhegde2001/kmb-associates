@@ -1,81 +1,85 @@
+"use client";
 import { FaHome, FaBuilding, FaBriefcase, FaChartLine } from "react-icons/fa";
+import { useReveal } from "@/hooks/useReveal";
 
 export default function Services() {
+  const ref = useReveal();
+
   const services = [
     {
       title: "Home Loan",
       icon: <FaHome />,
-      desc: "Purchase, Construction and Repair. Finances for purchase or construction of residential/commercial property.",
+      desc: "Comprehensive solutions for purchase, construction, and repair of residential or commercial properties.",
       price: "₹50L+",
     },
     {
       title: "Mortgage Loan",
       icon: <FaBuilding />,
-      desc: "Personal and Business. Loans provided by FIs against security to meet any financial need.",
+      desc: "Personal and business loans provided against security to meet your urgent financial requirements.",
       price: "₹50L+",
     },
     {
       title: "Business Loan",
       icon: <FaBriefcase />,
-      desc: "Unsecured (term loans for Corporates) and Secured (Working capital/CC/Overdraft with Security).",
+      desc: "Secured and unsecured funding options including working capital, overdrafts, and term loans.",
       price: "₹50L+",
     },
     {
       title: "Project/MSME Loan",
       icon: <FaChartLine />,
-      desc: "Finance for new projects and expansion via Banks, VCs, and debentures. Ideal for New MSMEs.",
+      desc: "Strategic financing for new projects and expansion via banking institutions and venture capital.",
       price: "₹50L+",
     },
   ];
 
   return (
-    <section id="services" className="py-28 px-6 bg-navy relative overflow-hidden">
-      {/* Subtle radial gradient */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,#132035_0%,transparent_70%)] z-0" />
-
-      <div className="relative z-10 max-w-7xl mx-auto">
+    <section ref={ref} id="services" className="py-24 md:py-32 px-6 bg-[#0D1A2D]">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
         <div className="text-center mb-16 reveal">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <hr className="w-10 h-[1px] bg-gold border-0" />
-            <span className="text-gold text-xs tracking-[0.2em] uppercase font-medium">OUR EXPERTISE</span>
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="w-8 h-px bg-[#C9A84C]" />
+            <span className="text-[#C9A84C] text-xs tracking-[0.22em] uppercase font-medium">Our Expertise</span>
+            <div className="w-8 h-px bg-[#C9A84C]" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-[#EEE9DF] leading-tight mb-6">
             Comprehensive Financial Solutions
           </h2>
-          <p className="text-white/45 text-base max-w-xl mx-auto font-body">
-            Tailored financing options designed to meet the unique needs of individuals and growing enterprises.
+          <p className="text-[rgba(238,233,223,0.45)] text-base max-w-2xl mx-auto font-body">
+            Strategic advisory and end-to-end support for a wide spectrum of credit requirements.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
           {services.map((service, index) => (
             <div 
               key={index}
-              className={`reveal bg-navy-card border border-white/[0.06] rounded-2xl p-8 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:border-gold/30 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3),0_0_0_1px_rgba(201,168,76,0.1)] group delay-${index + 1}`}
+              className={`reveal delay-${index + 1} bg-[#111F33] border border-[rgba(255,255,255,0.06)] rounded-2xl p-7 transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-[#C9A84C]/25 hover:-translate-y-1.5 hover:shadow-[0_24px_48px_rgba(0,0,0,0.3)] group`}
             >
-              <div className="w-14 h-14 rounded-xl bg-gold/[0.08] flex items-center justify-center text-gold text-2xl transition-all duration-500 group-hover:bg-gold group-hover:text-navy">
+              <div className="w-12 h-12 rounded-xl bg-[#C9A84C]/10 flex items-center justify-center text-[#C9A84C] text-xl transition-all duration-500 group-hover:bg-[#C9A84C] group-hover:text-[#08111E]">
                 {service.icon}
               </div>
               
-              <h3 className="font-display text-xl font-semibold text-white mt-6 mb-3">
+              <h3 className="font-display text-lg font-semibold text-[#EEE9DF] mt-5 mb-3 group-hover:text-[#C9A84C] transition-colors">
                 {service.title}
               </h3>
               
-              <p className="text-white/45 text-sm leading-relaxed font-body">
+              <p className="text-[rgba(238,233,223,0.45)] text-sm leading-relaxed font-body">
                 {service.desc}
               </p>
 
-              <div className="w-full h-px bg-white/[0.05] my-6" />
+              <div className="h-px bg-white/[0.05] my-5" />
               
               <div className="flex justify-between items-center">
-                <span className="text-gold text-sm font-medium">
+                <span className="text-[#C9A84C] text-[13px] font-semibold">
                   Starting at {service.price}
                 </span>
                 <a 
                   href="#contact" 
-                  className="text-white/35 text-sm hover:text-gold transition-colors cursor-pointer flex items-center gap-2 group-hover:gap-3 transition-all duration-300"
+                  className="text-white/30 text-[13px] font-medium hover:text-[#C9A84C] transition-colors flex items-center gap-1.5"
                 >
-                  Enquire <span className="transition-transform group-hover:translate-x-1">→</span>
+                  Enquire <span className="text-lg">→</span>
                 </a>
               </div>
             </div>

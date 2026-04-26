@@ -1,30 +1,37 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function useReveal() {
   const ref = useRef(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const targets = el.querySelectorAll 
-      ? [el, ...el.querySelectorAll('.reveal, .reveal-left, .reveal-right')] 
-      : [el];
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    targets.forEach(t => observer.observe(t));
-
-    return () => observer.disconnect();
+    setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    const section = ref.current;
+    if (!section) return;
+
+    const targets = section.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    if (targets.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+    );
+
+    targets.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [mounted]);
 
   return ref;
 }
