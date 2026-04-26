@@ -99,8 +99,8 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div
-          className={`fixed inset-0 bg-[#08111E]/98 backdrop-blur-2xl z-40 flex flex-col items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            isMenuOpen ? "translate-y-0" : "translate-y-full"
+          className={`fixed inset-0 bg-[#08111E]/98 backdrop-blur-2xl z-40 flex flex-col items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden ${
+            isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
           }`}
         >
           <div className="flex flex-col items-center space-y-8">

@@ -29,15 +29,6 @@ export default function Hero() {
       {/* Content Wrapper */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 pt-40 pb-28">
         <div className="flex flex-col items-start text-left">
-          {/* Badge */}
-          <div 
-            className="inline-flex items-center gap-2 border border-[#C9A84C]/25 bg-[#C9A84C]/[0.08] rounded-full px-4 py-1.5 mb-8"
-            style={{ animation: 'heroFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s both' }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C] animate-blink" />
-            <span className="text-[#C9A84C] text-[10px] tracking-[0.2em] uppercase font-medium">Trusted Financial Partners</span>
-          </div>
-          
           <h1 
             className="font-display leading-[1.1] mb-6"
             style={{ animation: 'heroFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s both' }}
@@ -70,17 +61,6 @@ export default function Hero() {
             >
               Our Services
             </a>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div 
-            className="flex flex-col items-center gap-2 mt-4"
-            style={{ animation: 'heroFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.9s both' }}
-          >
-            <div className="w-6 h-9 rounded-full border border-white/20 flex justify-center pt-1.5">
-              <div className="w-1 h-1.5 bg-white/40 rounded-full animate-bounce" />
-            </div>
-            <span className="text-white/25 text-[11px] tracking-[0.15em] uppercase">Scroll to explore</span>
           </div>
         </div>
       </div>
